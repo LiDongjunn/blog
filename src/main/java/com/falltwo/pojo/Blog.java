@@ -17,14 +17,59 @@ public class Blog {
     private Long id;
 
     private String title;
+    @Basic(fetch = FetchType.LAZY)
+    @Lob
     private String content;
+
+    @Override
+    public String toString() {
+        return "Blog{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", description='" + description + '\'' +
+                ", flag='" + flag + '\'' +
+                ", views=" + views +
+                ", appreciation=" + appreciation +
+                ", shareStatement=" + shareStatement +
+                ", commentable=" + commentable +
+                ", published=" + published +
+                ", recommend=" + recommend +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", type=" + type +
+                ", tags=" + tags +
+                ", user=" + user +
+                ", comments=" + comments +
+                ", tagIds='" + tagIds + '\'' +
+                '}';
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    private String description;
     private String flag;
     private Integer views;
     private boolean appreciation;
     private boolean shareStatement;
-    private boolean commentabled;
+    private boolean commentable;
     private boolean published;
     private boolean recommend;
+
+    public boolean isCommentable() {
+        return commentable;
+    }
+
+    public void setCommentable(boolean commentable) {
+        this.commentable = commentable;
+    }
+
     @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
     @Temporal(TemporalType.TIMESTAMP)
@@ -42,6 +87,17 @@ public class Blog {
 
     @OneToMany(mappedBy = "blog")
     private List<Comment> comments = new ArrayList<>();
+
+    @Transient
+    private String tagIds;
+
+    public String getTagIds() {
+        return tagIds;
+    }
+
+    public void setTagIds(String tagIds) {
+        this.tagIds = tagIds;
+    }
 
     public Blog() {
     }
@@ -102,13 +158,6 @@ public class Blog {
         this.shareStatement = shareStatement;
     }
 
-    public boolean isCommentabled() {
-        return commentabled;
-    }
-
-    public void setCommentabled(boolean commentabled) {
-        this.commentabled = commentabled;
-    }
 
     public boolean isPublished() {
         return published;
@@ -145,7 +194,9 @@ public class Blog {
     public Type getType() {
         return type;
     }
-
+    public Long getTypeId() {
+        return type != null ? type.getId() : null;
+    }
     public void setType(Type type) {
         this.type = type;
     }
@@ -174,21 +225,27 @@ public class Blog {
         this.comments = comments;
     }
 
-    @Override
-    public String toString() {
-        return "Blog{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                ", flag='" + flag + '\'' +
-                ", views=" + views +
-                ", appreciation=" + appreciation +
-                ", shareStatement=" + shareStatement +
-                ", commentabled=" + commentabled +
-                ", published=" + published +
-                ", recommend=" + recommend +
-                ", createTime=" + createTime +
-                ", updateTime=" + updateTime +
-                '}';
+    public void init() {
+        this.tagIds = tagsToIds(this.getTags());
     }
+
+    //1,2,3
+    private String tagsToIds(List<Tag> tags) {
+        if (!tags.isEmpty()) {
+            StringBuffer ids = new StringBuffer();
+            boolean flag = false;
+            for (Tag tag : tags) {
+                if (flag) {
+                    ids.append(",");
+                } else {
+                    flag = true;
+                }
+                ids.append(tag.getId());
+            }
+            return ids.toString();
+        } else {
+            return tagIds;
+        }
+    }
+
 }
