@@ -62,7 +62,7 @@
                     <div class="ui left labeled input">
                     <!--                compact适应文本-->
                         <div class="ui compact selection dropdown basic teal label">
-                            <input type="hidden" name="flag" value="原创" th:value="*{flag}">
+                            <input type="hidden" name="flag" value="原创" th:value="*{flag} != null ? *{flag} : 原创">
                             <i class="dropdown icon"></i>
                             <div class="default text">原创</div>
                             <div class="ui menu">
@@ -110,6 +110,9 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="field">
+                    <textarea name="description" th:text="*{description}" placeholder="博客描述..." maxlength="200"></textarea>
                 </div>
                 <!--单选框-->
                 <div class="inline fields">

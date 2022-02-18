@@ -4,6 +4,7 @@ import com.falltwo.NotFoundException;
 import com.falltwo.dao.BlogRepository;
 import com.falltwo.pojo.Blog;
 import com.falltwo.pojo.Type;
+import com.falltwo.util.MyBeanUtils;
 import com.falltwo.vo.BlogQuery;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,8 +82,8 @@ public class BlogServiceImpl implements BlogService {
         if (blog1 == null){
             throw new NotFoundException("该博客不存在");
         }
-        BeanUtils.copyProperties(blog,blog1);
-
+        BeanUtils.copyProperties(blog,blog1, MyBeanUtils.getNullPropertyNames(blog));
+        blog1.setUpdateTime(new Date());
         return blogRepository.save(blog1);
     }
     @Transactional

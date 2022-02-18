@@ -110,7 +110,7 @@ public class BlogController {
     }
 
     /**
-     * @author RunRoad
+     * @author FallTwo
      * @description //保存或新增博客内容
      * @createTime  2022/2/18 13:41
      * @param
@@ -121,16 +121,31 @@ public class BlogController {
         blog.setUser((User) session.getAttribute("user"));
         blog.setType(typeService.getType(blog.getType().getId()));
         blog.setTags(tagService.listTag(blog.getTagIds()));
-        Blog b = blogService.saveBlog(blog);
+        Blog b ;
+
+        if (blog.getId() != null){
+            b = blogService.updateBlog(blog.getId(),blog);
+        }else {
+            b = blogService.saveBlog(blog);
+        }
 
         if (b == null){
             attributes.addFlashAttribute("message","操作失败");
         }else {
             attributes.addFlashAttribute("message","操作成功");
         }
+
+
+
         return REDIRECT_LIST;
     }
-
+    /**
+     * @author FallTwo
+     * @description //TODO 删除博客
+     * @createTime  2022/2/18 14:46
+     * @param
+     * @return
+     **/
     @GetMapping("/blogs/{id}/delete")
     public String delete(@PathVariable Long id,RedirectAttributes attributes){
         blogService.deleteBlog(id);
