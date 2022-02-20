@@ -44,37 +44,31 @@
     </nav>
 
 <!--    wide column 是横列 column 是纵列-->
-    <main class="m-container-big m-padded-tb-huge animated pulse">
+    <main class="m-container-big m-padded-tb-huge animated pulse" th:object="${blog}">
         <div class="ui grid">
             <div class="ui thirteen wide column">
                 <div class="ui container segments">
                     <header class="ui top segment">
-                        <h2 class="ui centered header">
+                        <h2 class="ui centered header" th:text="*{title}">
                             关于刻意练习的清单
                         </h2>
                         <div class="ui center aligned container">
                             <div class="ui horizontal link list">
                                 <div class="item">
-                                    <i class="calendar icon"></i>2017-01-05
+                                    <i class="calendar icon"></i><span th:text="*{#dates.format(updateTime,'yyyy-MM-dd')}">2017-01-05</span>
                                 </div>
                                 <div class="item">
-                                    <i class="eye icon"></i>300
+                                    <i class="eye icon"></i><spqn th:text="*{views}">300</spqn>
                                 </div>
-                                <div class="ui left pointing teal basic label">
-                                    方法论
-                                </div>
-                                <div class="ui orange basic label">原创</div>
+                                <div class="ui left pointing teal basic label" th:text="*{type.name}">方法论</div>
+                                <div class="ui orange basic label" th:text="*{flag}">原创</div>
                             </div>
                         </div>
                     </header>
 
                     <article class="ui attached padded segment">
 
-                        <div class="ui right aligned basic segment">
-                            <div class="ui orange basic label">原创</div>
-                        </div>
-
-                        <div id="content" class="typo  typo-selection js-toc-content m-padded-lr-responsive m-padded-tb-large">
+                        <div id="content" class="typo  typo-selection js-toc-content m-padded-lr-responsive m-padded-tb-large" th:utext="*{content}">
 
                             <h2 id="section1">一、关于 <i class="serif">Typo.css</i></h2>
 
@@ -438,6 +432,10 @@ h5,h6{font-size:1em;}
                         </div>
 
 
+                        <!--                    标签-->
+                        <div class="m-padded-lr-responsive">
+                            <a class="ui basic teal left pointing label" th:each="tag : *{tags}" th:text="${tag.name}" th:href="@{/tag/{id}(id=${tag.id})}">方法论</a>
+                        </div>
                         <br><br>
                         <div class="ui center aligned container">
                             <button class="ui orange basic circular button" data-title="谢谢！😊">
@@ -451,15 +449,15 @@ h5,h6{font-size:1em;}
                         <div class="ui  middle aligned divided  grid">
                             <div class="thirteen wide column">
                                 <ui>
-                                    <li>作者:李仁密(联系作者)</li>
-                                    <li>发表时间:2017-10-02 09:08</li>
-                                    <li>版权声明:自由转载-非商用-非衍生-保持署名（创意共享3.0许可证)</li>
-                                    <li>公众号转载:请在文未添加作者公众号二维码</li>
+                                    <li>作者: <span th:text=" *{user.nickname}">秋二</span> <a href="#" th:href="@{/about}" target="_blank">(联系作者)</a> </li>
+                                    <li>发表时间: <span th:text=" *{#dates.format(updateTime)}">2017-10-02 09:08</span> </li>
+                                    <li>版权声明: 自由转载-非商用-非衍生-保持署名（创意共享3.0许可证)</li>
+                                    <li>公众号转载: 请在文未添加作者公众号二维码</li>
 
                                 </ui>
                             </div>
                             <div class="three wide column">
-                                <img src="../static/images/qq.jpg" alt="" class="ui rounded bordered image   " style="width: 110px;">
+                                <img src="../static/images/qq.jpg" th:src="@{/images/qq.jpg}" alt="" class="ui rounded bordered image   " style="width: 110px;">
                             </div>
 
                         </div>

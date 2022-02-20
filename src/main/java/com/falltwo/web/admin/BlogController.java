@@ -25,7 +25,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  * @author FallTwo
- * @description //TODO
+ * @description
  * @createTime  2022/2/18 13:50
  **/
 @Controller
@@ -44,7 +44,7 @@ public class BlogController {
     TagService tagService;
     /**
      * @author FallTwo
-     * @description //TODO 博客管理列表
+     * @description 博客管理列表
      * @createTime  2022/2/18 13:56
      * @param
      * @return
@@ -58,7 +58,7 @@ public class BlogController {
     }
     /**
      * @author FallTwo
-     * @description //TODO 按条件搜索博客列表
+     * @description 按条件搜索博客列表
      * @createTime  2022/2/18 13:56
      * @param
      * @return
@@ -71,7 +71,7 @@ public class BlogController {
     }
     /**
      * @author FallTwo
-     * @description //TODO 新增博客页面
+     * @description 新增博客页面
      * @createTime  2022/2/18 13:55
      * @param
      * @return
@@ -84,7 +84,7 @@ public class BlogController {
     }
     /**
      * @author FallTwo
-     * @description //TODO 渲染所有type，tag
+     * @description 渲染所有type，tag
      * @createTime  2022/2/18 13:54
      * @param
      * @return
@@ -140,12 +140,12 @@ public class BlogController {
         return REDIRECT_LIST;
     }
     /**
-     * @author FallTwo
-     * @description //TODO 删除博客
-     * @createTime  2022/2/18 14:46
-     * @param
-     * @return
-     **/
+     * @author: FallTwo
+     * @description:
+     * @createTime:  2022/2/20 12:25
+     * @param: [id, attributes]
+     * @return: java.lang.String
+     */
     @GetMapping("/blogs/{id}/delete")
     public String delete(@PathVariable Long id,RedirectAttributes attributes){
         blogService.deleteBlog(id);

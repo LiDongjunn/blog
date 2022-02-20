@@ -4,13 +4,12 @@ import com.falltwo.NotFoundException;
 import com.falltwo.dao.BlogRepository;
 import com.falltwo.pojo.Blog;
 import com.falltwo.pojo.Type;
+import com.falltwo.util.MarkdownUtils;
 import com.falltwo.util.MyBeanUtils;
 import com.falltwo.vo.BlogQuery;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.*;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,8 +35,27 @@ public class BlogServiceImpl implements BlogService {
     @Transactional
     @Override
     public Blog getBlog(Long id) {
-        return blogRepository.findOne(id);
+        Blog blog = blogRepository.findOne(id);
+        if (blog == null){
+            throw new NotFoundException("该博客不存在");
+        }
+        return blog;
+
     }
+
+    @Override
+    public Blog getAndConvert(Long id) {
+        Blog blog = blogRepository.findOne(id);
+        if (blog == null){
+            throw new NotFoundException("该博客不存在");
+        }
+        Blog b = new Blog();
+        BeanUtils.copyProperties(blog,b);
+        b.setContent(MarkdownUtils.markdownToHtmlExtensions(b.getContent()));
+
+        return b;
+    }
+
     @Transactional
     @Override
     public Page<Blog> listBlog(Pageable pageable, BlogQuery blog) {
@@ -63,6 +81,27 @@ public class BlogServiceImpl implements BlogService {
             }
         }, pageable);
     }
+
+    @Override
+    public Page<Blog> listBlog(Pageable pageable) {
+        return blogRepository.findAll(pageable);
+    }
+
+    @Override
+    public Page<Blog> listBlog(String query, Pageable pageable) {
+        return blogRepository.findByQuery(query,pageable);
+    }
+
+    @Override
+    public List<Blog> listRecommendBlogTop(Integer size) {
+
+        Sort sort = new Sort(Sort.Direction.DESC, "updateTime");
+
+        Pageable pageable = new PageRequest(0,size,sort);
+
+        return blogRepository.findBlogTop(pageable);
+    }
+
     @Transactional
     @Override
     public Blog saveBlog(Blog blog) {

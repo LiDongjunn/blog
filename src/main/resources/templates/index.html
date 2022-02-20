@@ -42,76 +42,40 @@
         <div class="ui container">
             <div class="ui grid stackable">
 <!--                左边博客列表-->
-                <div class="eleven wide column">
+                <div class="eleven wide column" >
 <!--                    middle将内容水平居中-->
                     <header class="ui segment top attached middle two column grid">
                             <div class="column">
                                 <h3 class="ui teal header">博客</h3>
                             </div>
                             <div class="right aligned column">
-                                共 <h3 class="ui orange header m-inline-block">14</h3> 篇博客
+                                共 <h3 class="ui orange header m-inline-block" th:text="${page.totalElements}">14</h3> 篇博客
                             </div>
                     </header>
 
-                    <main class="ui attached segment ">
-                        <div class="ui padded vertical segment grid stackable">
+                    <main class="ui attached segment">
+                        <div th:each="blog : ${page.content}" class="ui padded vertical segment grid stackable">
                             <div class="eleven wide column ">
-                                <h3 class="">你真的理解什么是财富自由吗?</h3>
-                                <p class="m-text">正确做好任何一件事情的前提是清晰、正确的理解目标。而事实是，我们很多人很多时候根本没有对目标正确的定义，甚至根本从来就没有想过，只是大家都那么做而已</p>
+                                <h3 class="" ><a href="#" th:href="@{/blog/{id}(id = ${blog.id})}" class="m-black" th:text="${blog.title}">你真的理解什么是财富自由吗?</a> </h3>
+                                <p class="m-text" th:text="|${blog.description}......|">正确做好任何一件事情的前提是清晰、正确的理解目标。而事实是，我们很多人很多时候根本没有对目标正确的定义，甚至根本从来就没有想过，只是大家都那么做而已</p>
                             </div>
                             <div class="five wide column ">
                                 <div class="ui horizontal link list">
-                                    <div class="item">
-                                        <i class="calendar icon item"></i>2017-01-01
+                                    <div class="item" >
+                                        <i class="calendar icon item"></i> <span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">2017-01-01</span>
                                     </div>
-                                    <div class="item">
-                                        <i class="eye icon"></i>355
-                                    </div>
-                                    <br>
-                                    <div class="item">
-                                        <a href="#" class="ui teal basic label item m-padded-mini">认知升级</a>
+                                    <div class="item" >
+                                        <i class="eye icon"></i> <span th:text="${blog.views}">355</span>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="ui padded vertical segment grid stackable">
-                            <div class="eleven wide column ">
-                                <h3 class="">你真的理解什么是财富自由吗?</h3>
-                                <p class="m-text">正确做好任何一件事情的前提是清晰、正确的理解目标。而事实是，我们很多人很多时候根本没有对目标正确的定义，甚至根本从来就没有想过，只是大家都那么做而已</p>
-                            </div>
-                            <div class="five wide column ">
+                                <br>
+                                <br>
                                 <div class="ui horizontal link list">
-                                    <div class="item">
-                                        <i class="calendar icon item"></i>2017-01-01
-                                    </div>
-                                    <div class="item">
-                                        <i class="eye icon"></i>355
-                                    </div>
-                                    <br>
-                                    <div class="item">
-                                        <a href="#" class="ui teal basic label item m-padded-mini">认知升级</a>
+                                    <div class="item ">
+                                        <a href="#" class="ui teal basic label item m-padded-mini" th:text="${blog.type.name}">认知升级</a>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="ui padded vertical segment grid stackable">
-                            <div class="eleven wide column ">
-                                <h3 class="">你真的理解什么是财富自由吗?</h3>
-                                <p class="m-text">正确做好任何一件事情的前提是清晰、正确的理解目标。而事实是，我们很多人很多时候根本没有对目标正确的定义，甚至根本从来就没有想过，只是大家都那么做而已</p>
-                            </div>
-                            <div class="five wide column ">
-                                <div class="ui horizontal link list">
-                                    <div class="item">
-                                        <i class="calendar icon item"></i>2017-01-01
-                                    </div>
-                                    <div class="item">
-                                        <i class="eye icon"></i>355
-                                    </div>
-                                    <br>
-                                    <div class="item">
-                                        <a href="#" class="ui teal basic label item m-padded-mini">认知升级</a>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
 
@@ -120,10 +84,10 @@
                     <footer class="ui bottom attached segment two column grid">
                         <div class="column">
 <!--                            basic 只给字体和边框加颜色-->
-                            <a href="#" class="ui teal basic mini button">上一页</a>
+                            <a href="#" class="ui teal basic mini button" th:href="@{/(page=${page.number}-1)}" th:unless="${page.first}">上一页</a>
                         </div>
                         <div class="right aligned column">
-                            <a href="#" class="ui teal basic mini button">下一页</a>
+                            <a href="#" class="ui teal basic mini button" th:href="@{/(page=${page.number}+1)}" th:unless="${page.last}">下一页</a>
                         </div>
 
                     </footer >
@@ -143,7 +107,7 @@
                                     <i class="idea icon"></i>分类
                                 </div>
                                 <div class="right aligned column">
-                                    <a href="#" >more<i class="angle double right icon"></i></a>
+                                    <a href="#" th:href="@{/types}" >more<i class="angle double right icon"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -151,6 +115,10 @@
                         <div class="ui teal segment">
                             <!--                        fluid填充右侧空白-->
                             <div class="ui vertical fluid menu">
+                                <a href="" class="item" th:each="type : ${types}"><span th:text="${type.name}">学习日志</span>
+                                    <div class="ui left pointing teal basic label"><span th:text="${#arrays.length(type.blogs)}">12</span></div>
+                                </a>
+                                <!--/*-->
                                 <a href="" class="item">学习日志
                                     <div class="ui left pointing teal basic label">12</div>
                                 </a>
@@ -160,9 +128,7 @@
                                 <a href="" class="item">学习日志
                                     <div class="ui left pointing teal basic label">12</div>
                                 </a>
-                                <a href="" class="item">学习日志
-                                    <div class="ui left pointing teal basic label">12</div>
-                                </a>
+                                <!--*/-->
                             </div>
                         </div>
                     </div>
@@ -174,12 +140,16 @@
                                     <i class="tags icon"></i>标签
                                 </div>
                                 <div class="right aligned column">
-                                    <a href="#" >more<i class="angle double right icon"></i></a>
+                                    <a href="#" th:href="@{/tags}" >more<i class="angle double right icon"></i></a>
                                 </div>
                             </div>
                         </div>
 
                         <div class="ui teal segment">
+                            <a href="#" target="_blank" class="ui left pointing teal basic label m-margin-tiny" th:each="tag : ${tags}">
+                                <span th:text="${tag.name}">方法论</span><div class="detail"><span th:text="${#arrays.length(tag.blogs)}">23</span></div>
+                            </a>
+                            <!--/*-->
                             <a href="#" target="_blank" class="ui left pointing teal basic label m-margin-tiny">
                                 方法论
                                 <div class="detail">
@@ -204,12 +174,7 @@
                                     23
                                 </div>
                             </a>
-                            <a href="#" target="_blank" class="ui left pointing teal basic label m-margin-tiny">
-                                方法论
-                                <div class="detail">
-                                    23
-                                </div>
-                            </a>
+                            <!--*/-->
                         </div>
                     </div>
 <!--                    最新推荐-->
@@ -220,15 +185,17 @@
                                 </div>
                         </div>
 
+                        <div class="ui segment " th:each="blog : ${recommendBlogs}">
+                            <a href="#" th:href="@{/blog/{id}(id = ${blog.id})}" target="_blank" class="m-black m-text-thin" th:text="${blog.title}">用户故事</a>
+                        </div>
+                        <!--/*-->
                         <div class="ui segment ">
                             <a href="#" target="_blank" class="m-black m-text-thin">用户故事</a>
                         </div>
                         <div class="ui segment ">
                             <a href="#" target="_blank" class="m-black m-text-thin">用户故事</a>
                         </div>
-                        <div class="ui segment ">
-                            <a href="#" target="_blank" class="m-black m-text-thin">用户故事</a>
-                        </div>
+                        <!--*/-->
                     </div>
 <!--                    二维码-->
                     <h4 class="ui horizontal divider header m-margin-top-large">扫码关注我</h4>
