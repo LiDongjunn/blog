@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <nav th:replace="_fragments :: menu(1)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small " >
+    <nav th:replace="_fragments :: menu(4)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small " >
         <div class="ui container">
 
 <!--           secondary 次要的，将首页,分类之间的间隔变大-->
@@ -43,14 +43,21 @@
                     <h3 class="ui teal header">归档</h3>
                 </div>
                 <div class="right aligned column">
-                    共 <h3 class="ui orange header m-inline-block">114</h3>篇博客
+                    共 <h3 class="ui orange header m-inline-block" th:text="${blogCount}">114</h3>篇博客
                 </div>
-
             </header>
-
-            <h2 class="ui center aligned header">2021</h2>
+            <th:block th:each="item : ${archiveMap}">
+            <h2 class="ui center aligned header" th:text="${item.key}">2021</h2>
 
             <div class="ui vertical fluid menu">
+                <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" class="item" th:each="blog : ${item.value}" >
+                    <span>
+                        <div class="ui teal basic left pointing label" th:text="${#dates.format(blog.createTime,'MM-dd')}">10-03</div>
+                        <span th:text="${blog.title}">关于刻意练习的清单</span><i class="mini teal circle icon"></i>
+                    </span>
+                    <div class="ui orange basic left pointing label" th:text="${blog.flag}">原创</div>
+                </a>
+                <!--/*-->
                 <a href="#" class="item">
                     <span>
                         <div class="ui teal basic left pointing label">10-03</div>
@@ -79,8 +86,13 @@
                     </span>
                     <div class="ui orange basic left pointing label">原创</div>
                 </a>
+                <!--*/-->
             </div>
 
+            </th:block>
+
+
+            <!--/*-->
             <h2 class="ui center aligned header">2020</h2>
 
             <div class="ui vertical fluid menu">
@@ -113,6 +125,7 @@
                     <div class="ui orange basic left pointing label">原创</div>
                 </a>
             </div>
+            <!--*/-->
 
         </div>
     </main>
@@ -169,10 +182,10 @@
 
 
     </footer>
-
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-
+    <!--/*/ <th:block th:replace="/_fragments :: script" > /*/-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <!--/*/ </th:block> /*/-->
     <script >
         $('.menu.toggle').click(function () {
             $('.m-item').toggleClass('m-mobile-hide');

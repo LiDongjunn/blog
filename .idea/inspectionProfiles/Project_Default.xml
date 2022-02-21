@@ -30,7 +30,7 @@
       <option name="IGNORE_JAVADOC_PERIOD" value="true" />
       <option name="IGNORE_DUPLICATED_THROWS" value="false" />
       <option name="IGNORE_POINT_TO_ITSELF" value="false" />
-      <option name="myAdditionalJavadocTags" value="date,author:,description,createTime,description:,createTime:,param:,return:" />
+      <option name="myAdditionalJavadocTags" value="date,author:,description,createTime,description:,createTime:,param:,return:,description:归档页控制层" />
     </inspection_tool>
   </profile>
 </component>

@@ -3,5 +3,8 @@ spring:
     mode: HTML
   profiles:
     active: dev
-
+  messages:
+    basename: i18n/messages
+    encoding: UTF-8
 comment.avatar: /images/avatar.jpg
+

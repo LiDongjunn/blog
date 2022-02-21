@@ -44,11 +44,16 @@
                     <h3 class="ui teal header">分类</h3>
                 </div>
                 <div class="right aligned column">
-                    共 <h3 class="ui orange header m-inline-block">14</h3> 个
+                    共 <h3 class="ui orange header m-inline-block" th:text="${#arrays.length(types)}">14</h3> 个
                 </div>
             </header>
 
             <main class="ui segment m-padded-tb-large">
+                <a th:href="@{/type/{id}(id=${type.id})}" class="ui labeled button m-margin-tb-tiny" th:each="type : ${types}">
+                    <div class="ui basic button" th:classappend="${type.id} == ${activeTypeId} ? 'teal'" th:text="${type.name}" >思考与感悟</div>
+                    <div class="ui basic left pointing label" th:classappend="${type.id == activeTypeId} ? 'teal'" th:text="${#arrays.length(type.blogs)}">24</div>
+                </a>
+                <!--/*-->
                 <a class="ui labeled button m-margin-tb-tiny">
                     <div class="ui basic teal button">思考与感悟</div>
                     <div class="ui basic teal left pointing label">24</div>
@@ -77,15 +82,35 @@
                     <div class="ui basic button">思考与感悟</div>
                     <div class="ui basic left pointing label">24</div>
                 </a>
-                <a class="ui labeled button m-margin-tb-tiny">
-                    <div class="ui basic button">思考与感悟</div>
-                    <div class="ui basic left pointing label">24</div>
-                </a>
+                <!--*/-->
             </main>
         </div>
 
         <div class="ui container segments">
             <main class="ui teal segment ">
+                <div class="ui padded m-padded-lr-clear vertical segment grid stackable" th:each="blog : ${page.content}" th:object="${blog}">
+                    <div class="eleven wide column ">
+                        <a href="#" th:href="@{/blog/{id}(id=*{id})}" class="m-black">
+                        <h3 class="" th:text="*{title}">你真的理解什么是财富自由吗?</h3>
+                        <p class="m-text" th:text="*{description}">正确做好任何一件事情的前提是清晰、正确的理解目标。而事实是，我们很多人很多时候根本没有对目标正确的定义，甚至根本从来就没有想过，只是大家都那么做而已</p>
+                        </a>
+                    </div>
+                    <div class="five wide column ">
+                        <div class="ui horizontal link list">
+                            <div class="item">
+                                <i class="calendar icon item"></i><span th:text="*{#dates.format(updateTime,'yyyy-MM-dd')}">2017-01-01</span>
+                            </div>
+                            <div class="item">
+                                <i class="eye icon"></i><span th:text="*{views}">355</span>
+                            </div>
+                            <br>
+                            <div class="item">
+                                <a href="#" class="ui teal basic label item m-padded-mini" th:text="*{type.name}">认知升级</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/*-->
                 <div class="ui padded m-padded-lr-clear vertical segment grid stackable">
                     <div class="eleven wide column ">
                         <h3 class="">你真的理解什么是财富自由吗?</h3>
@@ -126,37 +151,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="ui padded m-padded-lr-clear vertical segment grid stackable">
-                    <div class="eleven wide column ">
-                        <h3 class="">你真的理解什么是财富自由吗?</h3>
-                        <p class="m-text">正确做好任何一件事情的前提是清晰、正确的理解目标。而事实是，我们很多人很多时候根本没有对目标正确的定义，甚至根本从来就没有想过，只是大家都那么做而已</p>
-                    </div>
-                    <div class="five wide column ">
-                        <div class="ui horizontal link list">
-                            <div class="item">
-                                <i class="calendar icon item"></i>2017-01-01
-                            </div>
-                            <div class="item">
-                                <i class="eye icon"></i>355
-                            </div>
-                            <br>
-                            <div class="item">
-                                <a href="#" class="ui teal basic label item m-padded-mini">认知升级</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                <!--*/-->
             </main>
-            <footer class="ui bottom attached segment two column grid">
+            <footer class="ui bottom attached segment two column grid" th:if="${page.totalPages} > 1">
                 <div class="column">
                     <!--                            basic 只给字体和边框加颜色-->
-                    <a href="#" class="ui teal basic mini button">上一页</a>
+                    <a href="#" class="ui teal basic mini button" th:href="@{/type/{id}/(id=${activeTypeId},page=${page.number}-1)}" th:unless="${page.first}">上一页</a>
                 </div>
                 <div class="right aligned column">
-                    <a href="#" class="ui teal basic mini button">下一页</a>
+                    <a href="#" class="ui teal basic mini button" th:href="@{/type/{id}/(id=${activeTypeId},page=${page.number}+1)}" th:unless="${page.last}">下一页</a>
                 </div>
-
             </footer >
         </div>
     </main>
@@ -214,9 +218,10 @@
 
     </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-
+    <!--/*/ <th:block th:replace="/_fragments :: script" > /*/-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <!--/*/ </th:block> /*/-->
     <script >
         $('.menu.toggle').click(function () {
             $('.m-item').toggleClass('m-mobile-hide');

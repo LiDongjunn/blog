@@ -81,7 +81,7 @@
 
                     </main>
 
-                    <footer class="ui bottom attached segment two column grid">
+                    <footer class="ui bottom attached segment two column grid" th:if="${page.totalPages} > 1">
                         <div class="column">
 <!--                            basic 只给字体和边框加颜色-->
                             <a href="#" class="ui teal basic mini button" th:href="@{/(page=${page.number}-1)}" th:unless="${page.first}">上一页</a>
@@ -107,7 +107,7 @@
                                     <i class="idea icon"></i>分类
                                 </div>
                                 <div class="right aligned column">
-                                    <a href="#" th:href="@{/types}" >more<i class="angle double right icon"></i></a>
+                                    <a href="#" th:href="@{/type/-1}" >more<i class="angle double right icon"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -115,7 +115,7 @@
                         <div class="ui teal segment">
                             <!--                        fluid填充右侧空白-->
                             <div class="ui vertical fluid menu">
-                                <a href="" class="item" th:each="type : ${types}"><span th:text="${type.name}">学习日志</span>
+                                <a href="#" th:href="@{/type/{id}(id=${type.id})}" target="_blank" class="item" th:each="type : ${types}"><span th:text="${type.name}">学习日志</span>
                                     <div class="ui left pointing teal basic label"><span th:text="${#arrays.length(type.blogs)}">12</span></div>
                                 </a>
                                 <!--/*-->
@@ -140,13 +140,13 @@
                                     <i class="tags icon"></i>标签
                                 </div>
                                 <div class="right aligned column">
-                                    <a href="#" th:href="@{/tags}" >more<i class="angle double right icon"></i></a>
+                                    <a href="#" th:href="@{/tag/-1}" >more<i class="angle double right icon"></i></a>
                                 </div>
                             </div>
                         </div>
 
                         <div class="ui teal segment">
-                            <a href="#" target="_blank" class="ui left pointing teal basic label m-margin-tiny" th:each="tag : ${tags}">
+                            <a href="#" th:href="@{/tag/{id}(id=${tag.id})}" target="_blank" class="ui left pointing teal basic label m-margin-tiny" th:each="tag : ${tags}">
                                 <span th:text="${tag.name}">方法论</span><div class="detail"><span th:text="${#arrays.length(tag.blogs)}">23</span></div>
                             </a>
                             <!--/*-->
@@ -266,10 +266,10 @@
 
 
     </footer>
-
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-
+    <!--/*/ <th:block th:replace="/_fragments :: script" > /*/-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <!--/*/ </th:block> /*/-->
     <script >
         $('.menu.toggle').click(function () {
             $('.m-item').toggleClass('m-mobile-hide');

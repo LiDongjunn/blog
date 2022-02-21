@@ -3,7 +3,6 @@ package com.falltwo.service;
 
 import com.falltwo.NotFoundException;
 import com.falltwo.dao.TypeRepository;
-import com.falltwo.pojo.Tag;
 import com.falltwo.pojo.Type;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,6 @@ import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.rmi.CORBA.Util;
 import java.util.List;
 
 /**

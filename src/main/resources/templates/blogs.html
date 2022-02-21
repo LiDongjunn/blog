@@ -439,13 +439,13 @@ h5,h6{font-size:1em;}
                         <br><br>
                         <div class="ui center aligned container">
                             <button class="ui orange basic circular button" data-title="谢谢！😊">
-                                赞赏
+                                打Call！
                             </button>
                         </div>
 
                     </article>
 
-                    <address class="ui attached positive message">
+                    <address class="ui attached positive message" th:if="${blog.shareStatement}">
                         <div class="ui  middle aligned divided  grid">
                             <div class="thirteen wide column">
                                 <ui>
@@ -463,7 +463,7 @@ h5,h6{font-size:1em;}
                         </div>
                     </address>
 
-                    <footer  class="ui bottom attached segment">
+                    <footer  class="ui bottom attached segment" th:if="${blog.commentable}">
                         <div id="comment-container" class="ui teal segment">
                             <div th:fragment="commentList">
                                 <div class="ui comments" style="max-width: 100%">
@@ -608,7 +608,7 @@ h5,h6{font-size:1em;}
     </div>
     <div class="m-fixed m-right-bottom m-padded">
         <div class="ui vertical icon buttons">
-            <button class="ui toc teal button">目录</button>
+<!--            <button class="ui toc teal button">目录</button>-->
             <a href="#comment-container" class="ui  teal button">留言</a>
             <a href="#" class="ui  teal icon button"><i class="chevron up icon"></i></a>
         </div>

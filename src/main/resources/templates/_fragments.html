@@ -18,12 +18,12 @@
 <nav th:fragment="menu(n)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
   <div class="ui container">
     <div class="ui inverted secondary stackable menu">
-      <h2 class="ui teal header item">Blog</h2>
-      <a href="#" class="m-item item m-mobile-hide " th:classappend="${n==1} ? 'active'"><i class="home icon"></i>首页</a>
-      <a href="#" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class="idea icon"></i>分类</a>
-      <a href="#" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class="tags icon"></i>标签</a>
-      <a href="#" class="m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'"><i class="clone icon"></i>归档</a>
-      <a href="#" class="m-item item m-mobile-hide" th:classappend="${n==5} ? 'active'"><i class="info icon"></i>关于我</a>
+      <h2 class="ui teal header item">秋 二 的 B L O G</h2>
+      <a href="#" th:href="@{/}" class="m-item item m-mobile-hide " th:classappend="${n==1} ? 'active'"><i class="home icon"></i><span >首页</span></a>
+      <a href="#" th:href="@{/type/-1}" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class="idea icon"></i>分类</a>
+      <a href="#" th:href="@{/tag/-1}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class="tags icon"></i>标签</a>
+      <a href="#" th:href="@{/archive}" class="m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'"><i class="clone icon"></i>归档</a>
+      <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide" th:classappend="${n==5} ? 'active'"><i class="info icon"></i>关于我</a>
       <div class="right m-item item m-mobile-hide">
         <form name="search" action="#" th:action="@{/search}" method="get" target="_blank" >
           <div class="ui icon inverted transparent input m-margin-tb-tiny">
@@ -58,20 +58,22 @@
       </div>
       <div class="three wide column">
         <h4 class="ui inverted header m-text-thin m-text-spaced">最新博客</h4>
-        <div class="ui inverted link list">
-          <a href="#" class="item">用户故事</a>
-          <a href="#" class="item">用户故事</a>
-          <a href="#" class="item">用户故事</a>
-          <a href="#" class="item">用户故事</a>
-
+        <div id="newblogs-container">
+          <div class="ui inverted link list" id="" th:fragment="newblogList">
+            <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" class="item" th:each="blog : ${newblogs}" th:text="${blog.title}">用户故事</a>
+            <!--/*-->
+            <a href="#" class="item">用户故事</a>
+            <a href="#" class="item">用户故事</a>
+            <a href="#" class="item">用户故事</a>
+            <a href="#" class="item">用户故事</a>
+            <!--*/-->
+          </div>
         </div>
       </div>
       <div class="three wide column">
         <h4 class="ui inverted header m-text-thin m-text-spaced">联系我</h4>
         <div class="ui inverted link list">
-          <a href="#" class="item">用户故事</a>
-          <a href="#" class="item">用户故事</a>
-          <a href="#" class="item">用户故事</a>
+          <a href="#" class="item" th:text="#{index.email}">用户故事</a>
           <a href="#" class="item">用户故事</a>
 
         </div>
@@ -97,7 +99,7 @@
 
 </footer>
 
-<th:block th:fragment="script">
+<th:block >
 <!--  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>-->
 <!--  <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>-->
 <!--  <script src="//cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>-->
@@ -110,6 +112,9 @@
   <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
   <script src="../static/lib/prism/prism.js" th:src="@{/lib/prism/prism.js}"></script>
   <script src="../static/lib/tocbot/tocbot.min.js" th:src="@{/lib/tocbot/tocbot.min.js}"></script>
+  <script th:inline="javascript">
+    $('#newblogs-container').load(/*[[@{/footer/newblogs}]]*/"/footer/newblogs");
+  </script>
 
 </th:block>
 
