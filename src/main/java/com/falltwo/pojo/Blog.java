@@ -1,5 +1,7 @@
 package com.falltwo.pojo;
 
+import org.hibernate.annotations.Proxy;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -8,7 +10,7 @@ import java.util.List;
  * @Author: FallTwo
  * @Date: 2022/2/13 20:29
  */
-
+@Proxy(lazy = false)
 @Entity
 @Table(name = "t_blog")
 public class Blog {

@@ -1,5 +1,7 @@
 package com.falltwo.pojo;
 
+import org.hibernate.annotations.Proxy;
+
 import javax.persistence.*;
 
 /**
@@ -7,6 +9,7 @@ import javax.persistence.*;
  * @createTime: 2022/2/22 14:49
  * @description: About类
  */
+@Proxy(lazy = false)
 @Entity
 @Table(name = "t_about")
 public class About {
