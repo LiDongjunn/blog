@@ -18,7 +18,7 @@
 <nav th:fragment="menu(n)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
   <div class="ui container">
     <div class="ui inverted secondary stackable menu">
-      <h2 class="ui teal header item">秋 二 的 B L O G</h2>
+      <a href="#" th:href="@{/}"><h2 class="ui teal header item">秋 二 的 B L O G</h2></a>
       <a href="#" th:href="@{/}" class="m-item item m-mobile-hide " th:classappend="${n==1} ? 'active'"><i class="home icon"></i><span >首页</span></a>
       <a href="#" th:href="@{/type/-1}" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class="idea icon"></i>分类</a>
       <a href="#" th:href="@{/tag/-1}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class="tags icon"></i>标签</a>
@@ -71,18 +71,19 @@
         </div>
       </div>
       <div class="three wide column">
-        <h4 class="ui inverted header m-text-thin m-text-spaced">联系我</h4>
+        <h4 class="ui inverted header m-text-thin m-text-spaced"><a href="#" th:href="@{/about}" style="color: #FFF">联系我</a></h4>
         <div class="ui inverted link list">
-          <a href="#" class="item" th:text="#{index.email}">用户故事</a>
-          <a href="#" class="item">用户故事</a>
+          <a  class="item" th:text="#{index.email}">用户故事</a>
+          <a  class="item" th:text="#{index.qq}">用户故事</a>
 
         </div>
       </div>
       <div class="seven wide column">
-        <h4 class="ui inverted header m-text-thin m-text-spaced">Blog</h4>
-        <p class="m-text-thin m-text-spaced m-opacity-mini">这是我的个人博客、会分享关于编程、写作、思考相关的任何内容，希望可以给来到这儿的人有所帮助...
+        <a href="#" th:href="@{/about}" >
+        <h4 class="ui inverted header m-text-thin m-text-spaced" th:text="#{footer.title}">Blog</h4>
+        <p class="m-text-thin m-text-spaced m-opacity-mini m-white" th:text="#{footer.content}">这是我的个人博客、会分享关于编程、写作、思考相关的任何内容，希望可以给来到这儿的人有所帮助...
         </p>
-
+        </a>
       </div>
 
     </div>

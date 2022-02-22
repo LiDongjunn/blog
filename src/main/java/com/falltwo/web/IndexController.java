@@ -1,7 +1,9 @@
 package com.falltwo.web;
 
+import com.falltwo.pojo.About;
 import com.falltwo.pojo.Tag;
 import com.falltwo.pojo.Type;
+import com.falltwo.service.AboutService;
 import com.falltwo.service.BlogService;
 import com.falltwo.service.TagService;
 import com.falltwo.service.TypeService;
@@ -66,15 +68,28 @@ public class IndexController {
         return "search";
     }
 
-
+    /**
+     * @author: FallTwo
+     * @description: 作用：博客详情展示功能 原理：根据blogId，取得MD格式博客内容，并转化成html格式展示
+     * @createTime:  2022/2/22 14:42
+     * @param: [id, model]
+     * @return: java.lang.String
+     */
     @GetMapping("/blog/{id}")
     public String blog(@PathVariable Long id,Model model){
         model.addAttribute("blog",blogService.getAndConvert(id));
         return "blogs";
     }
 
+    private Long ABOUT_ID = new Long(1);
+
+    @Autowired
+    AboutService aboutService;
+
     @GetMapping("/about")
-    public String about(){
+    public String about(Model model){
+        About about = aboutService.getAndConvert(ABOUT_ID);
+        model.addAttribute("about",about);
         return "about";
     }
 

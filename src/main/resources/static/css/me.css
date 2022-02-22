@@ -99,6 +99,15 @@ line-height: 1.8;
   margin-bottom: 0.3em !important;
 }
 
+.m-margin-lr-mini{
+  margin-left: 0.3em !important;
+  margin-right: 0.3em !important;
+}
+
+.m-margin-lr-tiny{
+  margin-left: 1em !important;
+  margin-right: 1em !important;
+}
 
 /*-------opacity-------*/
 .m-opacity-mini {
@@ -136,6 +145,9 @@ line-height: 1.8;
 /*------color------*/
 .m-black{
   color: #333;
+}
+.m-white{
+  color: rgba(255,255,255,0.7);
 }
 
 /*------position------*/

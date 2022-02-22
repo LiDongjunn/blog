@@ -172,7 +172,7 @@ public class BlogServiceImpl implements BlogService {
 
     /**
      * @author: FallTwo
-     * @description: 作用：后台编辑博客后，提交保存至数据库 原理：获取实体博客，并使用jpa保存
+     * @description: 作用：后台新增博客后，提交保存至数据库 原理：获取实体博客，并使用jpa保存
      * @createTime:  2022/2/21 15:06
      * @param: [blog]
      * @return: com.falltwo.pojo.Blog

@@ -56,8 +56,10 @@
                     <main class="ui attached segment">
                         <div th:each="blog : ${page.content}" class="ui padded vertical segment grid stackable">
                             <div class="eleven wide column ">
-                                <h3 class="" ><a href="#" th:href="@{/blog/{id}(id = ${blog.id})}" class="m-black" th:text="${blog.title}">你真的理解什么是财富自由吗?</a> </h3>
-                                <p class="m-text" th:text="|${blog.description}......|">正确做好任何一件事情的前提是清晰、正确的理解目标。而事实是，我们很多人很多时候根本没有对目标正确的定义，甚至根本从来就没有想过，只是大家都那么做而已</p>
+                                <a href="#" th:href="@{/blog/{id}(id = ${blog.id})}" class="m-black">
+                                    <h3 class="" th:text="${blog.title}"> 你真的理解什么是财富自由吗? </h3>
+                                    <p class="m-text" th:text="|${blog.description}......|">正确做好任何一件事情的前提是清晰、正确的理解目标。而事实是，我们很多人很多时候根本没有对目标正确的定义，甚至根本从来就没有想过，只是大家都那么做而已</p>
+                                </a>
                             </div>
                             <div class="five wide column ">
                                 <div class="ui horizontal link list">
@@ -104,7 +106,7 @@
                         <div class="ui secondary segment">
                             <div class="ui two column grid">
                                 <div class="column">
-                                    <i class="idea icon"></i>分类
+                                    <a href="#" th:href="@{/type/-1}"  class="m-black"><i class="idea icon"></i>分类</a>
                                 </div>
                                 <div class="right aligned column">
                                     <a href="#" th:href="@{/type/-1}" >more<i class="angle double right icon"></i></a>
@@ -137,7 +139,7 @@
                         <div class="ui secondary segment">
                             <div class="ui two column grid">
                                 <div class="column">
-                                    <i class="tags icon"></i>标签
+                                    <a href="#" th:href="@{/tag/-1}" class="m-black"><i class="tags icon"></i>标签</a>
                                 </div>
                                 <div class="right aligned column">
                                     <a href="#" th:href="@{/tag/-1}" >more<i class="angle double right icon"></i></a>
@@ -198,11 +200,11 @@
                         <!--*/-->
                     </div>
 <!--                    二维码-->
-                    <h4 class="ui horizontal divider header m-margin-top-large">扫码关注我</h4>
+<!--                    <h4 class="ui horizontal divider header m-margin-top-large">扫码关注我</h4>-->
 
-                    <div class="ui centered card" style="width: 11em">
-                        <img src="../static/images/qq.jpg" th:src="@{/images/qq.jpg}" class="ui rounded image" alt="" >
-                    </div>
+<!--                    <div class="ui centered card" style="width: 11em">-->
+<!--                        <img src="../static/images/qq.jpg" th:src="@{/images/qq.jpg}" class="ui rounded image" alt="" >-->
+<!--                    </div>-->
 
                 </div>
 

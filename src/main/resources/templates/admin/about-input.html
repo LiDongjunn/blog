@@ -1,86 +1,80 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head th:replace="_fragments :: head(~{::title})" >
+<head th:replace="admin/_fragments :: head(~{::title})" >
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width， initial-scale=1.0">
-    <title>关于</title>
+    <title>博客发布</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-    <link rel="stylesheet" href="../static/css/me.css">
+    <link rel="stylesheet" href="../../static/css/me.css">
+    <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.min.css">
+
+
 </head>
 <body>
 
-    <nav th:replace="_fragments :: menu(5)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small " >
+    <nav th:replace="admin/_fragments :: menu(4)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small " >
         <div class="ui container">
 
 <!--           secondary 次要的，将首页,分类之间的间隔变大-->
             <div class="ui inverted secondary menu stackable">
-                <h2 class="ui teal header item" >秋二的 Blog</h2>
-
+                <h2 class="ui teal header item" >博客发布</h2>
                 <a href="#" class="m-item item m-mobile-hide"><i class=" home icon"></i>首页</a>
                 <a href="#" class="m-item item m-mobile-hide"><i class=" idea icon"></i>分类</a>
                 <a href="#" class="m-item item m-mobile-hide"><i class=" tags icon"></i>标签</a>
-                <a href="#" class="m-item item m-mobile-hide"><i class=" clone icon"></i>归档</a>
-                <a href="#" class="m-item item m-mobile-hide active"><i class=" info icon"></i>关于</a>
-<!--                置右-->
-                <div class="right m-item item m-mobile-hide">
-<!--                    更好看的搜索,icon 可在里面加图标-->
-                    <div class="ui icon input">
-                        <input type="text" placeholder="Search...."> </input>
-<!--                        i标签加图标，link让鼠标放在搜索图标的时候是点击按钮-->
-                        <i class="search link icon"></i>
+
+                <div class="right m-item m-mobile-hide menu ">
+                    <div class="ui dropdown item">
+                        <div class="text">
+                            <img src="../../static/images/avatar.jpg" alt="" class="ui avatar image">
+                            秋二
+                        </div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a href="" class="item">注销</a>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
+
         <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
             <i class="sidebar icon"></i>
         </a>
     </nav>
+
+
 <!--    wide column 是横列 column 是纵列-->
     <main class="m-container-small m-padded-tb-huge">
         <div class="ui container">
-            <div class="ui stackable grid">
-                <div class="eleven wide column">
-                    <div class="ui  segment">
-                        <h3 class="ui teal center aligned header">关于本站</h3>
-                        <p th:utext="${about.content}">本站<strong>关注编程、系统架构、性能优化</strong>，紧跟时代发展，也会介绍一些前沿的技术。遇到问题不可怕，可怕的是一而再再而三的犯下同样的错误。好记性不如烂笔头，权且记下，利于回顾，也许也能帮到你。</p>
+            <form action="#" th:action="@{/admin/about}" id="about-form"   method="post" class="ui form">
+
+                <!--内容-->
+                <div class="field">
+                    <div id="md-content" style="z-index: 1 !important;">
+                        <textarea name="content" id="" style="display: none" placeholder="博客内容" th:text="${about.content}"></textarea>
                     </div>
                 </div>
-                <div class="five wide column">
-                    <div class="ui segments">
-                        <div class="ui segment">
-                            <h3 class="ui teal center aligned header">关于我</h3>
-                            <img src="../static/images/avatar.jpg" th:src="@{/images/avatar.jpg}" alt="" class="ui centered rounded image" style="width:120px ">
-                        </div>
-                        <div class="ui segment">
-                            <p>荣幸至极，在这☞与您结识，我唤作秋二，不太正经的英文名是fall two，按照家乡话理解，我大抵是府上的伙计，在府里做些力气活儿，讨得一口饭吃。</p>
-                            <p>在偶得摸鱼片刻，学点技术活儿，能够做点体面的事儿，得以果腹。</p>
-                        </div>
-                        <div class="ui center aligned segment">
-                            <a href="#" class="ui qq icon" data-content="1711075738" data-position="bottom center"><i class="qq red big icon" ></i></a>
-                            <a href="#" th:href="#{about.url.github}" class="ui icon"><i class="github big icon m-black" ></i></a>
-                            <a href="#" th:href="#{about.url.twitter}" class="ui icon"><i class="twitter blue big icon"></i></a>
-<!--                            <a href="#" th:href="#{about.url.facebook}" class="ui icon"><i class="facebook big icon"></i></a>-->
-                            <a href="#" th:href="#{about.url.rss}" class="ui icon"><i class="rss big icon"></i></a>
-
-                        </div>
-                    </div>
-
+                <!--错误信息-->
+                <div class="ui error message"></div>
+                <!--操作按钮-->
+                <div class="ui right aligned container">
+                    <button class="ui basic button" onclick="window.history.go(-1)">返回</button>
+                    <button type="button" id="save-btn" class="ui secondary basic button">保存</button>
+                    <button type="button" id="publish-btn" class="ui basic teal button">发布</button>
                 </div>
-            </div>
+            </form>
         </div>
-
-
     </main>
 
-    <footer th:replace="_fragments :: footer" class="ui inverted attached segment m-padded-tb-massive">
-<!--        居中对齐-->
+    <footer th:replace="admin/_fragments :: footer" class="ui inverted attached segment m-padded-tb-massive">
+    <!--        居中对齐-->
         <div class="ui center aligned container">
             <div class="ui inverted divided grid stackable">
                 <div class="three wide column">
                     <div class="inverted link list">
                         <div class="item">
-                            <img src="../static/images/qq.jpg" class="ui rounded image" alt="" style="width: 110px">
+                            <img src="../../static/images/qq.jpg" class="ui rounded image" alt="" style="width: 110px">
                         </div>
                     </div>
 
@@ -125,16 +119,54 @@
 
 
     </footer>
-    <!--/*/ <th:block th:replace="/_fragments :: script" > /*/-->
+    <!--/*/ <th:block th:replace="admin/_fragments :: script" > /*/-->
+
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <script src="../../static/lib/editormd/editormd.min.js"></script>
     <!--/*/ </th:block> /*/-->
+
     <script >
+        //初始化markdown
+        var contentEditor;
+        $(function() {
+            contentEditor = editormd("md-content", {
+                width   : "100%",
+                height  : 640,
+                syncScrolling : "single",
+                // path    : "../static/lib/editormd/lib/"
+                path    : "/lib/editormd/lib/"
+            });
+
+            /*
+            // or
+            testEditor = editormd({
+                id      : "test-editormd",
+                width   : "90%",
+                height  : 640,
+                path    : "../lib/"
+            });
+            */
+        });
         $('.menu.toggle').click(function () {
             $('.m-item').toggleClass('m-mobile-hide');
         });
-        $('.ui.qq.icon').popup();
 
+        $('#publish-btn').click(function () {
+            $('#about-form').submit();
+        });
+
+        $('.ui.form').form({
+            fields : {
+                content : {
+                    identifier: 'content',
+                    rules: [{
+                        type : 'empty',
+                        prompt : '内容：请输入博客内容'
+                    }]
+                }
+            }
+        });
     </script>
 </body>
 </html>

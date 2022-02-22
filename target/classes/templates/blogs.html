@@ -60,8 +60,8 @@
                                 <div class="item">
                                     <i class="eye icon"></i><spqn th:text="*{views}">300</spqn>
                                 </div>
-                                <div class="ui left pointing teal basic label" th:text="*{type.name}">方法论</div>
-                                <div class="ui orange basic label" th:text="*{flag}">原创</div>
+                                <a href="#" th:href="@{/type/{id}(id=*{type.id})}" class="item"><div class="ui left pointing teal basic label" th:text="*{type.name}">方法论</div></a>
+                                <div class="ui orange basic label m-margin-lr-tiny" th:text="*{flag}">原创</div>
                             </div>
                         </div>
                     </header>
