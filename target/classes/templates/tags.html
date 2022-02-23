@@ -124,7 +124,7 @@
                                 </div>
                                 <br>
                                 <div class="item">
-                                    <a href="#" th:href="@{/type/{id}(id=*{type.id  })}" class="ui teal basic label item m-padded-mini" th:text="*{type.name}">认知升级</a>
+                                    <a href="#" th:href="@{/type/{id}(id=${blog.type.id})}" class="ui teal basic label item m-padded-mini" th:text="${blog.type.name}">认知升级</a>
                                 </div>
                             </div>
                         </div>
