@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title th:replace="${title}">博客详情</title>
+  <link rel="icon" href="../static/images/favicon.jpg" th:href="@{/images/favicon.jpg}" sizes="32x32">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
   <link rel="stylesheet" href="../static/css/typo.css" th:href="@{/css/typo.css}">
   <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}">
@@ -15,16 +16,16 @@
 
 
 <!--导航-->
-<nav th:fragment="menu(n)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small" >
-  <div class="ui container">
+<nav th:fragment="menu(n)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small " th:classappend="#{theme.background}" >
+  <div class="ui container ">
     <div class="ui inverted secondary stackable menu">
-      <a href="#" th:href="@{/}"><h2 class="ui teal header item">秋 二 的 B L O G</h2></a>
-      <a href="#" th:href="@{/}" class="m-item item m-mobile-hide " th:classappend="${n==1} ? 'active'"><i class="home icon"></i><span >首页</span></a>
-      <a href="#" th:href="@{/type/-1}" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class="idea icon"></i>分类</a>
-      <a href="#" th:href="@{/tag/-1}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class="tags icon"></i>标签</a>
-      <a href="#" th:href="@{/archive}" class="m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'"><i class="clone icon"></i>归档</a>
-      <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide" th:classappend="${n==5} ? 'active'"><i class="info icon"></i>关于我</a>
-      <div class="right m-item item m-mobile-hide">
+      <a href="#" th:href="@{/}"><h2 class="ui header item m-fall">秋 二 的 B L O G</h2></a>
+      <a href="#" th:href="@{/}" class="item m-mobile-hide " style="color: #0a001f!important;" th:classappend="${n==1} ? 'active m-background-color-wheat'" ><i class="home icon" th:classappend="#{theme.navIcon}"></i><span >首页</span></a>
+      <a href="#" th:href="@{/type/-1}" class="item m-mobile-hide " style="color: #0a001f!important;" th:classappend="${n==2} ? 'active m-background-color-wheat'"><i class="idea icon" th:classappend="#{theme.navIcon}"></i>分类</a>
+      <a href="#" th:href="@{/tag/-1}" class="item m-mobile-hide" style="color: #0a001f!important;" th:classappend="${n==3} ? 'active m-background-color-wheat'"><i class="tags icon" th:classappend="#{theme.navIcon}"></i>标签</a>
+      <a href="#" th:href="@{/archive}" class="item m-mobile-hide" style="color: #0a001f!important;" th:classappend="${n==4} ? 'active m-background-color-wheat'"><i class="clone icon" th:classappend="#{theme.navIcon}"></i>归档</a>
+      <a href="#" th:href="@{/about}" class="item m-mobile-hide" style="color: #0a001f!important;" th:classappend="${n==5} ? 'active m-background-color-wheat'"><i class="info icon" th:classappend="#{theme.navIcon}"></i>关于我</a>
+      <div class="right item m-mobile-hide">
         <form name="search" action="#" th:action="@{/search}" method="get" target="_blank" >
           <div class="ui icon inverted transparent input m-margin-tb-tiny">
             <input type="text" name="query" placeholder="Search...." value="" th:value="${query}">
@@ -44,22 +45,15 @@
 
 
 <!--底部footer-->
-<footer th:fragment="footer" class="ui inverted attached segment m-padded-tb-massive">
+<footer th:fragment="footer" class="ui segment m-padded-tb-massive" style="background-color: inherit" >
   <!--        居中对齐-->
   <div class="ui center aligned container">
-    <div class="ui inverted divided grid stackable">
-      <div class="three wide column">
-        <div class="inverted link list">
-          <div class="item">
-            <img src="../static/images/qq.jpg" th:src="@{/images/qq.jpg}" class="ui rounded image" alt="" style="width: 110px">
-          </div>
-        </div>
+    <div class="ui divided grid stackable">
 
-      </div>
-      <div class="three wide column">
-        <h4 class="ui inverted header m-text-thin m-text-spaced">最新博客</h4>
+      <div class="four wide column">
+        <h4 class="ui header m-text-thin m-text-spaced m-black">最新博客</h4>
         <div id="newblogs-container">
-          <div class="ui inverted link list" id="" th:fragment="newblogList">
+          <div class="ui link list" id="" th:fragment="newblogList">
             <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" class="item" th:each="blog : ${newblogs}" th:text="${blog.title}">用户故事</a>
             <!--/*-->
             <a href="#" class="item">用户故事</a>
@@ -70,18 +64,18 @@
           </div>
         </div>
       </div>
-      <div class="three wide column">
-        <h4 class="ui inverted header m-text-thin m-text-spaced"><a href="#" th:href="@{/about}" style="color: #FFF">联系我</a></h4>
-        <div class="ui inverted link list">
+      <div class="four wide column">
+        <h4 class="ui header m-text-thin m-text-spaced"><a href="#" th:href="@{/about}" class="m-black" >联系我</a></h4>
+        <div class="ui link list">
           <a  class="item" th:text="#{index.email}">用户故事</a>
           <a  class="item" th:text="#{index.qq}">用户故事</a>
 
         </div>
       </div>
-      <div class="seven wide column">
+      <div class="eight wide column">
         <a href="#" th:href="@{/about}" >
-        <h4 class="ui inverted header m-text-thin m-text-spaced" th:text="#{footer.title}">Blog</h4>
-        <p class="m-text-thin m-text-spaced m-opacity-mini m-white" th:text="#{footer.content}">这是我的个人博客、会分享关于编程、写作、思考相关的任何内容，希望可以给来到这儿的人有所帮助...
+        <h4 class="ui header m-text-thin m-text-spaced" th:text="#{footer.title}">Blog</h4>
+        <p class="m-text-thin m-text-spaced m-opacity-mini m-black" th:text="#{footer.content}">这是我的个人博客、会分享关于编程、写作、思考相关的任何内容，希望可以给来到这儿的人有所帮助...
         </p>
         </a>
       </div>
@@ -92,7 +86,7 @@
     </div>
 
     <p  class="m-text-thin m-text-spaced m-opacity-mini">
-      <a href="https://beian.miit.gov.cn/" class="m-white">渝ICP备2022002290号</a> <br>
+      <a href="https://beian.miit.gov.cn/" class="m-black">渝ICP备2022002290号</a> <br>
       Designed and developed by Fall Two. <br>
       Copyright © 2021 - 2022 falltwo.com. All Rights Reserved.
     </p>

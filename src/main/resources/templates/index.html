@@ -14,7 +14,7 @@
 
 <!--           secondary 次要的，将首页,分类之间的间隔变大-->
             <div class="ui inverted secondary menu stackable">
-                <h2 class="ui teal header item" >秋二的 Blog</h2>
+                <h2 class="ui header item"  >秋二的 Blog</h2>
 
                 <a href="#" class="m-item item m-mobile-hide"><i class=" home icon"></i>首页</a>
                 <a href="#" class="m-item item m-mobile-hide"><i class=" idea icon"></i>分类</a>
@@ -44,16 +44,16 @@
 <!--                左边博客列表-->
                 <div class="eleven wide column" >
 <!--                    middle将内容水平居中-->
-                    <header class="ui segment top attached middle two column grid">
+                    <header class="ui segment top attached middle two column grid " th:classappend=" #{theme.articleTerminal}">
                             <div class="column">
-                                <h3 class="ui teal header">博客</h3>
+                                <h3 class="ui header m-theme-font-color" th:classappend="#{theme.me}" >博客</h3>
                             </div>
                             <div class="right aligned column">
                                 共 <h3 class="ui orange header m-inline-block" th:text="${page.totalElements}">14</h3> 篇博客
                             </div>
                     </header>
 
-                    <main class="ui attached segment">
+                    <main class="ui attached segment  " th:classappend=" #{theme.articleContent}">
                         <div th:each="blog : ${page.content}" class="ui padded vertical segment grid stackable">
                             <div class="eleven wide column ">
                                 <a href="#" th:href="@{/blog/{id}(id = ${blog.id})}" class="m-black">
@@ -74,7 +74,7 @@
                                 <br>
                                 <div class="ui horizontal link list">
                                     <div class="item ">
-                                        <a href="#" th:href="@{/type/{id}(id=${blog.type.id})}" class="ui teal basic label item m-padded-mini" th:text="${blog.type.name}">认知升级</a>
+                                        <a href="#" th:href="@{/type/{id}(id=${blog.type.id})}" class="ui " th:classappend="#{theme.semantic} + ' basic label item m-padded-mini'" th:text="${blog.type.name}">认知升级</a>
                                     </div>
                                 </div>
 
@@ -83,13 +83,13 @@
 
                     </main>
 
-                    <footer class="ui bottom attached segment two column grid" th:if="${page.totalPages} > 1">
+                    <footer class="ui bottom attached segment two column grid " th:classappend=" #{theme.articleTerminal}" th:if="${page.totalPages} > 1">
                         <div class="column">
 <!--                            basic 只给字体和边框加颜色-->
-                            <a href="#" class="ui teal basic mini button" th:href="@{/(page=${page.number}-1)}" th:unless="${page.first}">上一页</a>
+                            <a href="#" class="ui " th:classappend="#{theme.semantic} + ' basic mini button'" th:href="@{/(page=${page.number}-1)}" th:unless="${page.first}">上一页</a>
                         </div>
                         <div class="right aligned column">
-                            <a href="#" class="ui teal basic mini button" th:href="@{/(page=${page.number}+1)}" th:unless="${page.last}">下一页</a>
+                            <a href="#" class="ui " th:classappend="#{theme.semantic} + ' basic mini button'" th:href="@{/(page=${page.number}+1)}" th:unless="${page.last}">下一页</a>
                         </div>
 
                     </footer >
@@ -103,22 +103,21 @@
 <!--                    右侧分类-->
                     <div class="ui segments">
                         <!--                    secondary加灰色/-->
-                        <div class="ui secondary segment">
+                        <div class="ui secondary segment" th:classappend=" #{theme.articleTerminal}">
                             <div class="ui two column grid">
                                 <div class="column">
                                     <a href="#" th:href="@{/type/-1}"  class="m-black"><i class="idea icon"></i>分类</a>
                                 </div>
                                 <div class="right aligned column">
-                                    <a href="#" th:href="@{/type/-1}" >more<i class="angle double right icon"></i></a>
+                                    <a href="#" th:href="@{/type/-1}" th:classappend="#{theme.me}">more<i class="angle double right icon"></i></a>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="ui teal segment">
                             <!--                        fluid填充右侧空白-->
-                            <div class="ui vertical fluid menu">
+                        <div class="ui vertical attached fluid menu" th:classappend="#{theme.articleContent}">
                                 <a href="#" th:href="@{/type/{id}(id=${type.id})}" target="_blank" class="item" th:each="type : ${types}"><span th:text="${type.name}">学习日志</span>
-                                    <div class="ui left pointing teal basic label"><span th:text="${#arrays.length(type.blogs)}">12</span></div>
+                                    <div class="ui left pointing basic label" th:classappend="#{theme.semantic}"><span th:text="${#arrays.length(type.blogs)}">12</span></div>
                                 </a>
                                 <!--/*-->
                                 <a href="" class="item">学习日志
@@ -132,23 +131,22 @@
                                 </a>
                                 <!--*/-->
                             </div>
-                        </div>
                     </div>
 <!--                    右侧标签-->
                     <div class="ui segments m-margin-top-large">
-                        <div class="ui secondary segment">
+                        <div class="ui secondary segment" th:classappend=" #{theme.articleTerminal}">
                             <div class="ui two column grid">
                                 <div class="column">
                                     <a href="#" th:href="@{/tag/-1}" class="m-black"><i class="tags icon"></i>标签</a>
                                 </div>
                                 <div class="right aligned column">
-                                    <a href="#" th:href="@{/tag/-1}" >more<i class="angle double right icon"></i></a>
+                                    <a href="#" th:href="@{/tag/-1}" th:classappend="#{theme.me}">more<i class="angle double right icon"></i></a>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="ui teal segment">
-                            <a href="#" th:href="@{/tag/{id}(id=${tag.id})}" target="_blank" class="ui left pointing teal basic label m-margin-tiny" th:each="tag : ${tags}">
+                        <div class="ui segment" th:classappend="#{theme.semantic}+' '+#{theme.articleContent}">
+                            <a href="#" th:href="@{/tag/{id}(id=${tag.id})}" target="_blank" class="ui left pointing basic label m-margin-tiny" th:classappend="#{theme.semantic}" th:each="tag : ${tags}">
                                 <span th:text="${tag.name}">方法论</span><div class="detail"><span th:text="${#arrays.length(tag.blogs)}">23</span></div>
                             </a>
                             <!--/*-->
@@ -180,16 +178,14 @@
                         </div>
                     </div>
 <!--                    最新推荐-->
-                    <div class="ui segments m-margin-top-large">
-                        <div class="ui secondary segment">
+                    <div class="ui segments m-margin-top-large" >
+                        <div class="ui secondary segment" th:classappend=" #{theme.articleTerminal}">
                                 <div class="column">
                                     <i class="bookmark icon"></i>最新推荐
                                 </div>
                         </div>
-                        <div class="ui teal segment">
-                            <div class="ui vertical fluid menu" >
-                                <a href="#" th:href="@{/blog/{id}(id = ${blog.id})}" target="_blank" class="item m-black m-text-thin" th:each="blog : ${recommendBlogs}" th:text="${blog.title}">用户故事</a>
-                            </div>
+                        <div class="ui vertical fluid menu" th:classappend="#{theme.articleContent}">
+                            <a href="#" th:href="@{/blog/{id}(id = ${blog.id})}" target="_blank" class="item m-black m-text-thin" th:each="blog : ${recommendBlogs}" th:text="${blog.title}">用户故事</a>
                         </div>
                         <!--/*-->
                         <div class="ui segment ">
