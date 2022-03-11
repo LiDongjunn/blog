@@ -46,7 +46,7 @@
 <!--                    middle将内容水平居中-->
                     <header class="ui segment top attached middle two column grid " th:classappend=" #{theme.articleTerminal}">
                             <div class="column">
-                                <h3 class="ui header m-theme-font-color" th:classappend="#{theme.me}" >博客</h3>
+                                <h3 class="ui header " th:classappend="#{theme.semantic}" >博客</h3>
                             </div>
                             <div class="right aligned column">
                                 共 <h3 class="ui orange header m-inline-block" th:text="${page.totalElements}">14</h3> 篇博客
@@ -62,12 +62,12 @@
                                 </a>
                             </div>
                             <div class="five wide column ">
-                                <div class="ui horizontal link list">
+                                <div class="ui horizontal link list m-padded">
                                     <div class="item" >
-                                        <i class="calendar icon item"></i> <span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">2017-01-01</span>
+                                        <i class="calendar icon item" style="padding-bottom: 20px !important"></i> <span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">2017-01-01</span>
                                     </div>
                                     <div class="item" >
-                                        <i class="eye icon"></i> <span th:text="${blog.views}">355</span>
+                                        <i class="eye icon" style="padding-bottom: 20px !important"></i> <span th:text="${blog.views}">355</span>
                                     </div>
                                 </div>
                                 <br>
@@ -145,8 +145,8 @@
                             </div>
                         </div>
 
-                        <div class="ui segment" th:classappend="#{theme.semantic}+' '+#{theme.articleContent}">
-                            <a href="#" th:href="@{/tag/{id}(id=${tag.id})}" target="_blank" class="ui left pointing basic label m-margin-tiny" th:classappend="#{theme.semantic}" th:each="tag : ${tags}">
+                        <div class="ui segment" th:classappend="#{theme.articleContent}">
+                            <a href="#" th:href="@{/tag/{id}(id=${tag.id})}" target="_blank" class="ui left pointing basic label m-margin-tiny" th:classappend="#{theme.semanticTag}" th:each="tag : ${tags}">
                                 <span th:text="${tag.name}">方法论</span><div class="detail"><span th:text="${#arrays.length(tag.blogs)}">23</span></div>
                             </a>
                             <!--/*-->
@@ -184,7 +184,7 @@
                                     <i class="bookmark icon"></i>最新推荐
                                 </div>
                         </div>
-                        <div class="ui vertical fluid menu" th:classappend="#{theme.articleContent}">
+                        <div class="ui vertical attached fluid menu" th:classappend="#{theme.articleContent}">
                             <a href="#" th:href="@{/blog/{id}(id = ${blog.id})}" target="_blank" class="item m-black m-text-thin" th:each="blog : ${recommendBlogs}" th:text="${blog.title}">用户故事</a>
                         </div>
                         <!--/*-->

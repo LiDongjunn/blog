@@ -39,9 +39,9 @@
 <!--    wide column 是横列 column 是纵列-->
     <main class="m-container-small m-padded-tb-huge">
         <div class="ui container segments">
-            <header class="ui segment top attached middle two column grid">
+            <header class="ui segment top attached middle two column grid" th:classappend="#{theme.articleTerminal}">
                 <div class="column">
-                    <h3 class="ui teal header">标签</h3>
+                    <h3 class="ui header" th:classappend="#{theme.semantic}">标签</h3>
                 </div>
                 <div class="right aligned column">
                     共 <h3 class="ui orange header m-inline-block" th:text="${#arrays.length(tags)}">14</h3> 个
@@ -49,8 +49,8 @@
 
             </header>
 
-            <main class="ui segment m-padded-tb-large" >
-                <a th:each="tag : ${tags}" href="#" th:href="@{/tag/{id}(id=${tag.id})}" class="ui left pointing basic large label m-margin-tiny" th:classappend="${tag.id} == ${activeTagId} ? 'teal'"   >
+            <main class="ui segment m-padded-tb-large" th:classappend="#{theme.articleContent}">
+                <a th:each="tag : ${tags}" href="#" th:href="@{/tag/{id}(id=${tag.id})}" class="ui left pointing basic large label m-margin-tiny"  style="background-color: #fdf5e6 !important;" th:classappend="${tag.id} == ${activeTagId} ? #{theme.semantic}"   >
                     <span th:text="${tag.name}">方法论</span>
                     <div class="detail" th:text="${#arrays.length(tag.blogs)}">
                         23
@@ -104,8 +104,8 @@
 
         </div>
 
-        <div class="ui container segments">
-            <main class="ui teal segment ">
+        <div class="ui container segments" >
+            <main class="ui teal segment " th:classappend="#{theme.articleContent}">
                 <div class="ui padded m-padded-lr-clear vertical segment grid stackable" th:each="blog : ${page.content}" th:object="${blog}">
                     <div class="row">
                         <div class="eleven wide column ">
@@ -114,24 +114,27 @@
                                 <p class="m-text" th:text="*{description}">正确做好任何一件事情的前提是清晰、正确的理解目标。而事实是，我们很多人很多时候根本没有对目标正确的定义，甚至根本从来就没有想过，只是大家都那么做而已</p>
                             </a>
                         </div>
-                        <div class="five wide column ">
-                            <div class="ui horizontal link list">
-                                <div class="item">
-                                    <i class="calendar icon item"></i><span th:text="*{#dates.format(updateTime,'yyyy-MM-dd')}">2017-01-01</span>
+                        <div class="five wide  column ">
+                            <div class="ui horizontal link list m-padded">
+                                <div class="item" >
+                                    <i class="calendar icon item " style="padding-bottom: 20px !important"></i><span th:text="*{#dates.format(updateTime,'yyyy-MM-dd')}">2017-01-01</span>
                                 </div>
                                 <div class="item">
-                                    <i class="eye icon"></i><span th:text="*{views}">355</span>
+                                    <i class="eye icon" style="padding-bottom: 20px !important"></i><span th:text="*{views}">355</span>
                                 </div>
                                 <br>
+
+                            </div>
+                            <div class="ui vertical link list">
                                 <div class="item">
-                                    <a href="#" th:href="@{/type/{id}(id=${blog.type.id})}" class="ui teal basic label item m-padded-mini" th:text="${blog.type.name}">认知升级</a>
+                                    <a href="#" th:href="@{/type/{id}(id=${blog.type.id})}" class="ui basic label item m-padded-mini" th:classappend="#{theme.semantic}"  th:text="${blog.type.name}">认知升级</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="column">
-                            <a href="#" th:href="@{/tag/{id}(id=${tag.id})}" class="ui left pointing basic mini label m-margin-tiny" th:classappend="${tag.id} == ${activeTagId} ? 'teal'" th:each="tag : *{tags}" th:text="${tag.name}">方法论</a>
+                            <a href="#" th:href="@{/tag/{id}(id=${tag.id})}" class="ui left pointing basic mini label m-margin-tiny" th:classappend="${tag.id} == ${activeTagId} ? #{theme.semanticTag}" style="background-color: #fdf5e6 !important;" th:each="tag : *{tags}" th:text="${tag.name}">方法论</a>
                         </div>
                     </div>
                 </div>
@@ -192,13 +195,13 @@
                 </div>
                 <!--*/-->
             </main>
-            <footer class="ui bottom attached segment two column grid" th:if="${page.totalPages} > 1">
+            <footer class="ui bottom attached segment two column grid" th:classappend="#{theme.articleTerminal}" th:if="${page.totalPages} > 1">
                 <div class="column">
                     <!--                            basic 只给字体和边框加颜色-->
-                    <a href="#" class="ui teal basic mini button" th:href="@{/tag/{id}/(id=${activeTagId},page=${page.number}-1)}" th:unless="${page.first}">上一页</a>
+                    <a href="#" class="ui basic mini button" th:classappend="#{theme.semantic}" th:href="@{/tag/{id}/(id=${activeTagId},page=${page.number}-1)}" th:unless="${page.first}">上一页</a>
                 </div>
                 <div class="right aligned column">
-                    <a href="#" class="ui teal basic mini button" th:href="@{/tag/{id}/(id=${activeTagId},page=${page.number}+1)}" th:unless="${page.last}">下一页</a>
+                    <a href="#" class="ui basic mini button" th:classappend="#{theme.semantic}" th:href="@{/tag/{id}/(id=${activeTagId},page=${page.number}+1)}" th:unless="${page.last}">下一页</a>
                 </div>
             </footer >
         </div>

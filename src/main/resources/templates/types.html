@@ -38,20 +38,20 @@
     </nav>
 <!--    wide column 是横列 column 是纵列-->
     <main class="m-container-small m-padded-tb-huge">
-        <div class="ui container segments">
+        <div class="ui container segments" >
             <header class="ui segment top attached middle two column grid">
-                <div class="column">
-                    <h3 class="ui teal header">分类</h3>
+                <div class="column" th:classappend="#{theme.articleTerminal}">
+                    <h3 class="ui header" th:classappend="#{theme.semantic}">分类</h3>
                 </div>
-                <div class="right aligned column">
+                <div class="right aligned column" th:classappend="#{theme.articleTerminal}">
                     共 <h3 class="ui orange header m-inline-block" th:text="${#arrays.length(types)}">14</h3> 个
                 </div>
             </header>
 
-            <main class="ui segment m-padded-tb-large">
-                <a th:href="@{/type/{id}(id=${type.id})}" class="ui labeled button m-margin-tb-tiny" th:each="type : ${types}">
-                    <div class="ui basic button" th:classappend="${type.id} == ${activeTypeId} ? 'teal'" th:text="${type.name}" >思考与感悟</div>
-                    <div class="ui basic left pointing label" th:classappend="${type.id == activeTypeId} ? 'teal'" th:text="${#arrays.length(type.blogs)}">24</div>
+            <main class="ui segment m-padded-tb-large" th:classappend="#{theme.articleContent}">
+                <a th:href="@{/type/{id}(id=${type.id})}" class="ui labeled button m-margin-tb-tiny"  th:each="type : ${types}">
+                    <div class="ui basic button " style="background-color: #fdf5e6 !important;" th:classappend="${type.id} == ${activeTypeId} ? #{theme.semantic}" th:text="${type.name}" >思考与感悟</div>
+                    <div class="ui basic left pointing label" style="background-color: #fdf5e6 !important;" th:classappend="${type.id == activeTypeId} ? #{theme.semantic}" th:text="${#arrays.length(type.blogs)}">24</div>
                 </a>
                 <!--/*-->
                 <a class="ui labeled button m-margin-tb-tiny">
@@ -87,7 +87,7 @@
         </div>
 
         <div class="ui container segments">
-            <main class="ui teal segment ">
+            <main class="ui segment " th:classappend="#{theme.articleContent}">
                 <div class="ui padded m-padded-lr-clear vertical segment grid stackable" th:each="blog : ${page.content}" th:object="${blog}">
                     <div class="eleven wide column ">
                         <a href="#" th:href="@{/blog/{id}(id=*{id})}" class="m-black">
@@ -96,16 +96,19 @@
                         </a>
                     </div>
                     <div class="five wide column ">
+                        <div class="ui horizontal link list m-padded">
+                            <div class="item">
+                                <i class="calendar icon item" style="padding-bottom: 20px !important"></i><span th:text="*{#dates.format(updateTime,'yyyy-MM-dd')}">2017-01-01</span>
+                            </div>
+                            <div class="item">
+                                <i class="eye icon" style="padding-bottom: 20px !important"></i><span th:text="*{views}">355</span>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
                         <div class="ui horizontal link list">
                             <div class="item">
-                                <i class="calendar icon item"></i><span th:text="*{#dates.format(updateTime,'yyyy-MM-dd')}">2017-01-01</span>
-                            </div>
-                            <div class="item">
-                                <i class="eye icon"></i><span th:text="*{views}">355</span>
-                            </div>
-                            <br>
-                            <div class="item">
-                                <a href="#" th:href="@{/type/{id}(id=${blog.type.id})}" class="ui teal basic label item m-padded-mini" th:text="${blog.type.name}">认知升级</a>
+                                <a href="#" th:href="@{/type/{id}(id=${blog.type.id})}" class="ui basic label item m-padded-mini" th:classappend="#{theme.semantic}"  th:text="${blog.type.name}">认知升级</a>
                             </div>
                         </div>
                     </div>

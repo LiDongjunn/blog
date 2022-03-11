@@ -41,22 +41,22 @@
         <div class="ui container">
             <div class="ui stackable grid">
                 <div class="eleven wide column">
-                    <div class="ui  segment">
-                        <h3 class="ui teal center aligned header">关于本站</h3>
+                    <div class="ui  segment" th:classappend="#{theme.articleContent}">
+                        <h3 class="ui center aligned header" th:classappend="#{theme.semantic}">关于本站</h3>
                         <p th:utext="${about.content}">本站<strong>关注编程、系统架构、性能优化</strong>，紧跟时代发展，也会介绍一些前沿的技术。遇到问题不可怕，可怕的是一而再再而三的犯下同样的错误。好记性不如烂笔头，权且记下，利于回顾，也许也能帮到你。</p>
                     </div>
                 </div>
                 <div class="five wide column">
                     <div class="ui segments">
-                        <div class="ui segment">
-                            <h3 class="ui teal center aligned header">关于我</h3>
+                        <div class="ui segment" th:classappend="#{theme.articleContent}">
+                            <h3 class="ui center aligned header" th:classappend="#{theme.semantic}">关于我</h3>
                             <img src="../static/images/avatar.jpg" th:src="@{/images/avatar.jpg}" alt="" class="ui centered rounded image" style="width:120px ">
                         </div>
-                        <div class="ui segment">
+                        <div class="ui segment" th:classappend="#{theme.articleContent}">
                             <p>荣幸至极，在这☞与您结识，我唤作秋二，不太正经的英文名是fall two，按照家乡话理解，我大抵是府上的伙计，在府里做些力气活儿，讨得一口饭吃。</p>
                             <p>在偶得摸鱼片刻，学点技术活儿，能够做点体面的事儿，得以果腹。</p>
                         </div>
-                        <div class="ui center aligned segment">
+                        <div class="ui center aligned segment" th:classappend="#{theme.articleContent}">
                             <a href="#" class="ui qq icon" data-content="1711075738" data-position="bottom center"><i class="qq red big icon" ></i></a>
                             <a href="#" th:href="#{about.url.github}" class="ui icon" target="_blank"><i class="github big icon m-black" ></i></a>
                             <a href="#" th:href="#{about.url.twitter}" class="ui icon" target="_blank"><i class="twitter blue big icon"></i></a>

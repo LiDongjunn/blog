@@ -39,9 +39,9 @@
 <!--    wide column 是横列 column 是纵列-->
     <main class="m-container-small m-padded-tb-huge">
         <div class="ui container segments">
-            <header class="ui segment top attached middle two column grid">
+            <header class="ui segment top attached middle two column grid" th:classappend="#{theme.articleTerminal}">
                 <div class="column">
-                    <h3 class="ui teal header">搜索结果</h3>
+                    <h3 class="ui header" th:classappend="#{theme.semantic}">搜索结果</h3>
                 </div>
                 <div class="right aligned column">
                     共 <h3 class="ui orange header m-inline-block" th:text="${page.totalElements}">14</h3> 个
@@ -51,7 +51,7 @@
 
         </div>
 
-        <main class="ui attached segment">
+        <main class="ui attached segment" th:classappend="#{theme.articleContent}">
             <div th:each="blog : ${page.content}" class="ui padded vertical segment grid stackable">
                 <div class="eleven wide column ">
                     <a href="#" th:href="@{/blog/{id}(id = ${blog.id})}" class="m-black">
@@ -60,32 +60,32 @@
                     </a>
                 </div>
                 <div class="five wide column ">
-                    <div class="ui horizontal link list">
+                    <div class="ui horizontal link list m-padded">
                         <div class="item" >
-                            <i class="calendar icon item"></i> <span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">2017-01-01</span>
+                            <i class="calendar icon item" style="padding-bottom: 20px !important"></i> <span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">2017-01-01</span>
                         </div>
                         <div class="item" >
-                            <i class="eye icon"></i> <span th:text="${blog.views}">355</span>
+                            <i class="eye icon" style="padding-bottom: 20px !important"></i> <span th:text="${blog.views}">355</span>
                         </div>
                     </div>
                     <br>
                     <br>
                     <div class="ui horizontal link list">
                         <div class="item ">
-                            <a href="#" th:href="@{/type/{id}(id=${blog.type.id})}" class="ui teal basic label item m-padded-mini" th:text="${blog.type.name}">认知升级</a>
+                            <a href="#" th:href="@{/type/{id}(id=${blog.type.id})}" class="ui basic label item m-padded-mini" th:classappend="#{theme.semantic}" th:text="${blog.type.name}">认知升级</a>
                         </div>
                     </div>
 
                 </div>
             </div>
         </main>
-        <footer class="ui bottom attached segment two column grid">
+        <footer class="ui bottom attached segment two column grid" th:classappend="#{theme.articleTerminal}">
             <div class="column">
                 <!--                            basic 只给字体和边框加颜色-->
-                <a  class="ui teal basic mini button" th:href="@{/search/(query=${query},page=${page.number}-1)}"  th:unless="${page.first}">上一页</a>
+                <a  class="ui basic mini button" th:classappend="#{theme.semantic}" th:href="@{/search/(query=${query},page=${page.number}-1)}"  th:unless="${page.first}">上一页</a>
             </div>
             <div class="right aligned column">
-                <a  class="ui teal basic mini button" th:href="@{/search/(query=${query},page=${page.number}+1)}"  th:unless="${page.last}">下一页</a>
+                <a  class="ui basic mini button" th:classappend="#{theme.semantic}" th:href="@{/search/(query=${query},page=${page.number}+1)}"  th:unless="${page.last}">下一页</a>
             </div>
         </footer >
     </main>
