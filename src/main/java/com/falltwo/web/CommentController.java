@@ -29,6 +29,9 @@ public class CommentController {
 
     @Value("${comment.avatar}")
     private String avatar;
+
+    @Value("${comment.fans}")
+    private String fans;
     /**
      * @author: FallTwo
      * @description: 展示评论
@@ -59,7 +62,7 @@ public class CommentController {
             comment.setAvatar(user.getAvatar());
             comment.setAdminComment(true);
         }else {
-            comment.setAvatar(avatar);
+            comment.setAvatar(fans);
         }
         commentService.saveComment(comment);
         return "redirect:/comments/"+ blogId;

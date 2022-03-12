@@ -1,0 +1,250 @@
+2022-03-11 22:43:55.411  INFO 11480 --- [main] com.falltwo.BlogApplication              : Starting BlogApplication v0.0.1-SNAPSHOT on Samsung with PID 11480 (E:\EDU\gitcode\blog\target\blog-0.0.1-SNAPSHOT.jar started by SAMSUNG in E:\EDU\gitcode\blog\target)
+2022-03-11 22:43:55.416 DEBUG 11480 --- [main] com.falltwo.BlogApplication              : Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2022-03-11 22:43:55.417  INFO 11480 --- [main] com.falltwo.BlogApplication              : The following profiles are active: pro
+2022-03-11 22:43:55.809  INFO 11480 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5ccddd20: startup date [Fri Mar 11 22:43:55 CST 2022]; root of context hierarchy
+2022-03-11 22:44:01.656  INFO 11480 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 80 (http)
+2022-03-11 22:44:01.693  INFO 11480 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-11 22:44:01.696  INFO 11480 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2022-03-11 22:44:01.893  INFO 11480 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-11 22:44:01.895  INFO 11480 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 6086 ms
+2022-03-11 22:44:02.196  INFO 11480 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2022-03-11 22:44:02.203  INFO 11480 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2022-03-11 22:44:02.217  INFO 11480 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2022-03-11 22:44:02.218  INFO 11480 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2022-03-11 22:44:02.218  INFO 11480 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2022-03-11 22:44:03.471  INFO 11480 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2022-03-11 22:44:03.503  INFO 11480 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2022-03-11 22:44:03.709  INFO 11480 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2022-03-11 22:44:03.712  INFO 11480 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2022-03-11 22:44:03.716  INFO 11480 --- [main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2022-03-11 22:44:03.915  INFO 11480 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2022-03-11 22:44:04.791  INFO 11480 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2022-03-11 22:44:05.872  INFO 11480 --- [main] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2022-03-11 22:44:06.591  INFO 11480 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-03-11 22:44:07.272  INFO 11480 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2022-03-11 22:44:08.364  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5ccddd20: startup date [Fri Mar 11 22:43:55 CST 2022]; root of context hierarchy
+2022-03-11 22:44:08.519  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/about],methods=[GET]}" onto public java.lang.String com.falltwo.web.admin.AboutController.about(org.springframework.ui.Model)
+2022-03-11 22:44:08.522  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/about],methods=[POST]}" onto public java.lang.String com.falltwo.web.admin.AboutController.about(com.falltwo.pojo.About,org.springframework.ui.Model)
+2022-03-11 22:44:08.525  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/{id}/delete],methods=[GET]}" onto public java.lang.String com.falltwo.web.admin.BlogController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2022-03-11 22:44:08.526  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/input],methods=[GET]}" onto public java.lang.String com.falltwo.web.admin.BlogController.input(org.springframework.ui.Model)
+2022-03-11 22:44:08.527  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/search],methods=[POST]}" onto public java.lang.String com.falltwo.web.admin.BlogController.search(org.springframework.data.domain.Pageable,com.falltwo.vo.BlogQuery,org.springframework.ui.Model)
+2022-03-11 22:44:08.528  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs],methods=[GET]}" onto public java.lang.String com.falltwo.web.admin.BlogController.blogs(org.springframework.data.domain.Pageable,com.falltwo.vo.BlogQuery,org.springframework.ui.Model)
+2022-03-11 22:44:08.529  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/{id}/input],methods=[GET]}" onto public java.lang.String com.falltwo.web.admin.BlogController.editInput(java.lang.Long,org.springframework.ui.Model)
+2022-03-11 22:44:08.530  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs],methods=[POST]}" onto public java.lang.String com.falltwo.web.admin.BlogController.post(com.falltwo.pojo.Blog,org.springframework.web.servlet.mvc.support.RedirectAttributes,javax.servlet.http.HttpSession)
+2022-03-11 22:44:08.532  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin],methods=[GET]}" onto public java.lang.String com.falltwo.web.admin.LoginController.loginPage()
+2022-03-11 22:44:08.532  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/logout],methods=[GET]}" onto public java.lang.String com.falltwo.web.admin.LoginController.logout(javax.servlet.http.HttpSession)
+2022-03-11 22:44:08.533  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login],methods=[POST]}" onto public java.lang.String com.falltwo.web.admin.LoginController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2022-03-11 22:44:08.536  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/{id}/delete],methods=[GET]}" onto public java.lang.String com.falltwo.web.admin.TagController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2022-03-11 22:44:08.537  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/input],methods=[GET]}" onto public java.lang.String com.falltwo.web.admin.TagController.input(org.springframework.ui.Model)
+2022-03-11 22:44:08.538  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags]}" onto public java.lang.String com.falltwo.web.admin.TagController.tags(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2022-03-11 22:44:08.539  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/{id}],methods=[POST]}" onto public java.lang.String com.falltwo.web.admin.TagController.editPost(com.falltwo.pojo.Tag,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2022-03-11 22:44:08.540  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/{id}/input],methods=[GET]}" onto public java.lang.String com.falltwo.web.admin.TagController.editInput(java.lang.Long,org.springframework.ui.Model)
+2022-03-11 22:44:08.540  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags],methods=[POST]}" onto public java.lang.String com.falltwo.web.admin.TagController.post(com.falltwo.pojo.Tag,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2022-03-11 22:44:08.542  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/{id}/delete],methods=[GET]}" onto public java.lang.String com.falltwo.web.admin.TypeController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2022-03-11 22:44:08.543  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types],methods=[GET]}" onto public java.lang.String com.falltwo.web.admin.TypeController.types(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2022-03-11 22:44:08.545  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/input],methods=[GET]}" onto public java.lang.String com.falltwo.web.admin.TypeController.input(org.springframework.ui.Model)
+2022-03-11 22:44:08.547  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/{id}],methods=[POST]}" onto public java.lang.String com.falltwo.web.admin.TypeController.editPost(com.falltwo.pojo.Type,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2022-03-11 22:44:08.549  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/{id}/input],methods=[GET]}" onto public java.lang.String com.falltwo.web.admin.TypeController.editInput(java.lang.Long,org.springframework.ui.Model)
+2022-03-11 22:44:08.549  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types],methods=[POST]}" onto public java.lang.String com.falltwo.web.admin.TypeController.post(com.falltwo.pojo.Type,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2022-03-11 22:44:08.550  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/archive],methods=[GET]}" onto public java.lang.String com.falltwo.web.ArchiveShowController.archive(org.springframework.ui.Model)
+2022-03-11 22:44:08.554  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/comments/{blogId}],methods=[GET]}" onto public java.lang.String com.falltwo.web.CommentController.comments(java.lang.Long,org.springframework.ui.Model)
+2022-03-11 22:44:08.555  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/comments],methods=[POST]}" onto public java.lang.String com.falltwo.web.CommentController.post(com.falltwo.pojo.Comment,javax.servlet.http.HttpSession)
+2022-03-11 22:44:08.557  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public java.lang.String com.falltwo.web.IndexController.index(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2022-03-11 22:44:08.558  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/search],methods=[GET]}" onto public java.lang.String com.falltwo.web.IndexController.query(org.springframework.data.domain.Pageable,java.lang.String,org.springframework.ui.Model)
+2022-03-11 22:44:08.558  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/about],methods=[GET]}" onto public java.lang.String com.falltwo.web.IndexController.about(org.springframework.ui.Model)
+2022-03-11 22:44:08.559  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/blog/{id}],methods=[GET]}" onto public java.lang.String com.falltwo.web.IndexController.blog(java.lang.Long,org.springframework.ui.Model)
+2022-03-11 22:44:08.562  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/footer/newblogs],methods=[GET]}" onto public java.lang.String com.falltwo.web.IndexController.newBlogs(org.springframework.ui.Model)
+2022-03-11 22:44:08.563  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tag/{id}],methods=[GET]}" onto public java.lang.String com.falltwo.web.TagShowController.tag(org.springframework.data.domain.Pageable,java.lang.Long,org.springframework.ui.Model)
+2022-03-11 22:44:08.565  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/type/{id}],methods=[GET]}" onto public java.lang.String com.falltwo.web.TypeShowController.type(org.springframework.data.domain.Pageable,java.lang.Long,org.springframework.ui.Model)
+2022-03-11 22:44:08.567  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2022-03-11 22:44:08.568  INFO 11480 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2022-03-11 22:44:08.616  INFO 11480 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2022-03-11 22:44:08.616  INFO 11480 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2022-03-11 22:44:08.638  INFO 11480 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in controllerExceptionHandler
+2022-03-11 22:44:08.679  INFO 11480 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2022-03-11 22:44:09.541  INFO 11480 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2022-03-11 22:44:10.451  INFO 11480 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 80 (http)
+2022-03-11 22:44:10.459  INFO 11480 --- [main] com.falltwo.BlogApplication              : Started BlogApplication in 25.092 seconds (JVM running for 31.211)
+2022-03-11 22:44:35.890  INFO 11480 --- [http-nio-80-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2022-03-11 22:44:35.890  INFO 11480 --- [http-nio-80-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2022-03-11 22:44:35.932  INFO 11480 --- [http-nio-80-exec-2] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 41 ms
+2022-03-11 22:44:36.023  INFO 11480 --- [http-nio-80-exec-2] com.falltwo.aspect.LogAspect             : Request : {url='http://localhost/', ip='0:0:0:0:0:0:0:1', classMethod='com.falltwo.web.IndexController.index', args=[Page request [number: 0, size 4, sort: updateTime: DESC], {}]}
+2022-03-11 22:44:36.247  WARN 11480 --- [http-nio-80-exec-2] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [null.size]; use collection function syntax instead [size(null)].
+2022-03-11 22:44:36.265  WARN 11480 --- [http-nio-80-exec-2] org.hibernate.orm.deprecation            : HHH90000016: Found use of deprecated 'collection property' syntax in HQL/JPQL query [null.size]; use collection function syntax instead [size(null)].
+2022-03-11 22:44:36.295  INFO 11480 --- [http-nio-80-exec-2] com.falltwo.aspect.LogAspect             : Result : index
+2022-03-11 22:44:44.047  INFO 11480 --- [http-nio-80-exec-5] com.falltwo.aspect.LogAspect             : Request : {url='http://localhost/footer/newblogs', ip='0:0:0:0:0:0:0:1', classMethod='com.falltwo.web.IndexController.newBlogs', args=[{}]}
+2022-03-11 22:44:44.066  INFO 11480 --- [http-nio-80-exec-5] com.falltwo.aspect.LogAspect             : Result : _fragments :: newblogList
+2022-03-11 22:44:58.615  INFO 11480 --- [http-nio-80-exec-7] com.falltwo.aspect.LogAspect             : Request : {url='http://localhost/type/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.falltwo.web.TypeShowController.type', args=[Page request [number: 0, size 4, sort: updateTime: DESC], -1, {}]}
+2022-03-11 22:44:58.656  INFO 11480 --- [http-nio-80-exec-7] com.falltwo.aspect.LogAspect             : Result : types
+2022-03-11 22:45:06.963  INFO 11480 --- [http-nio-80-exec-3] com.falltwo.aspect.LogAspect             : Request : {url='http://localhost/footer/newblogs', ip='0:0:0:0:0:0:0:1', classMethod='com.falltwo.web.IndexController.newBlogs', args=[{}]}
+2022-03-11 22:45:07.007  INFO 11480 --- [http-nio-80-exec-3] com.falltwo.aspect.LogAspect             : Result : _fragments :: newblogList
+2022-03-11 22:45:08.594  INFO 11480 --- [http-nio-80-exec-1] com.falltwo.aspect.LogAspect             : Request : {url='http://localhost/type/21', ip='0:0:0:0:0:0:0:1', classMethod='com.falltwo.web.TypeShowController.type', args=[Page request [number: 0, size 4, sort: updateTime: DESC], 21, {}]}
+2022-03-11 22:45:08.624  INFO 11480 --- [http-nio-80-exec-1] com.falltwo.aspect.LogAspect             : Result : types
+2022-03-11 22:45:16.956  INFO 11480 --- [http-nio-80-exec-9] com.falltwo.aspect.LogAspect             : Request : {url='http://localhost/footer/newblogs', ip='0:0:0:0:0:0:0:1', classMethod='com.falltwo.web.IndexController.newBlogs', args=[{}]}
+2022-03-11 22:45:16.975  INFO 11480 --- [http-nio-80-exec-9] com.falltwo.aspect.LogAspect             : Result : _fragments :: newblogList
+2022-03-11 22:45:59.577  INFO 8128 --- [main] com.falltwo.BlogApplication              : Starting BlogApplication v0.0.1-SNAPSHOT on Samsung with PID 8128 (E:\EDU\gitcode\blog\target\blog-0.0.1-SNAPSHOT.jar started by SAMSUNG in E:\EDU\gitcode\blog\target)
+2022-03-11 22:45:59.586 DEBUG 8128 --- [main] com.falltwo.BlogApplication              : Running with Spring Boot v1.5.7.RELEASE, Spring v4.3.11.RELEASE
+2022-03-11 22:45:59.586  INFO 8128 --- [main] com.falltwo.BlogApplication              : The following profiles are active: dev
+2022-03-11 22:46:00.138  INFO 8128 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7f010382: startup date [Fri Mar 11 22:46:00 CST 2022]; root of context hierarchy
+2022-03-11 22:46:06.064  INFO 8128 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2022-03-11 22:46:06.081  INFO 8128 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-03-11 22:46:06.083  INFO 8128 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.20
+2022-03-11 22:46:06.217  INFO 8128 --- [localhost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-03-11 22:46:06.218  INFO 8128 --- [localhost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 6080 ms
+2022-03-11 22:46:06.517  INFO 8128 --- [localhost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2022-03-11 22:46:06.523  INFO 8128 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2022-03-11 22:46:06.524  INFO 8128 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2022-03-11 22:46:06.524  INFO 8128 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2022-03-11 22:46:06.524  INFO 8128 --- [localhost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2022-03-11 22:46:07.481  INFO 8128 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2022-03-11 22:46:07.508  INFO 8128 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2022-03-11 22:46:07.686  INFO 8128 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.0.12.Final}
+2022-03-11 22:46:07.688  INFO 8128 --- [main] org.hibernate.cfg.Environment            : HHH000206: hibernate.properties not found
+2022-03-11 22:46:07.691  INFO 8128 --- [main] org.hibernate.cfg.Environment            : HHH000021: Bytecode provider name : javassist
+2022-03-11 22:46:07.799  INFO 8128 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2022-03-11 22:46:08.215  INFO 8128 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2022-03-11 22:46:09.225  INFO 8128 --- [main] org.hibernate.tool.hbm2ddl.SchemaUpdate  : HHH000228: Running hbm2ddl schema update
+2022-03-11 22:46:09.830  INFO 8128 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-03-11 22:46:10.396  INFO 8128 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2022-03-11 22:46:11.571  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7f010382: startup date [Fri Mar 11 22:46:00 CST 2022]; root of context hierarchy
+2022-03-11 22:46:11.729  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/about],methods=[GET]}" onto public java.lang.String com.falltwo.web.admin.AboutController.about(org.springframework.ui.Model)
+2022-03-11 22:46:11.730  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/about],methods=[POST]}" onto public java.lang.String com.falltwo.web.admin.AboutController.about(com.falltwo.pojo.About,org.springframework.ui.Model)
+2022-03-11 22:46:11.733  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/{id}/delete],methods=[GET]}" onto public java.lang.String com.falltwo.web.admin.BlogController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2022-03-11 22:46:11.733  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/input],methods=[GET]}" onto public java.lang.String com.falltwo.web.admin.BlogController.input(org.springframework.ui.Model)
+2022-03-11 22:46:11.733  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/search],methods=[POST]}" onto public java.lang.String com.falltwo.web.admin.BlogController.search(org.springframework.data.domain.Pageable,com.falltwo.vo.BlogQuery,org.springframework.ui.Model)
+2022-03-11 22:46:11.734  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs],methods=[POST]}" onto public java.lang.String com.falltwo.web.admin.BlogController.post(com.falltwo.pojo.Blog,org.springframework.web.servlet.mvc.support.RedirectAttributes,javax.servlet.http.HttpSession)
+2022-03-11 22:46:11.734  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs],methods=[GET]}" onto public java.lang.String com.falltwo.web.admin.BlogController.blogs(org.springframework.data.domain.Pageable,com.falltwo.vo.BlogQuery,org.springframework.ui.Model)
+2022-03-11 22:46:11.734  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/blogs/{id}/input],methods=[GET]}" onto public java.lang.String com.falltwo.web.admin.BlogController.editInput(java.lang.Long,org.springframework.ui.Model)
+2022-03-11 22:46:11.735  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin],methods=[GET]}" onto public java.lang.String com.falltwo.web.admin.LoginController.loginPage()
+2022-03-11 22:46:11.736  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/login],methods=[POST]}" onto public java.lang.String com.falltwo.web.admin.LoginController.login(java.lang.String,java.lang.String,javax.servlet.http.HttpSession,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2022-03-11 22:46:11.736  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/logout],methods=[GET]}" onto public java.lang.String com.falltwo.web.admin.LoginController.logout(javax.servlet.http.HttpSession)
+2022-03-11 22:46:11.738  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/{id}/delete],methods=[GET]}" onto public java.lang.String com.falltwo.web.admin.TagController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2022-03-11 22:46:11.738  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/input],methods=[GET]}" onto public java.lang.String com.falltwo.web.admin.TagController.input(org.springframework.ui.Model)
+2022-03-11 22:46:11.738  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags]}" onto public java.lang.String com.falltwo.web.admin.TagController.tags(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2022-03-11 22:46:11.739  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags],methods=[POST]}" onto public java.lang.String com.falltwo.web.admin.TagController.post(com.falltwo.pojo.Tag,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2022-03-11 22:46:11.739  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/{id}/input],methods=[GET]}" onto public java.lang.String com.falltwo.web.admin.TagController.editInput(java.lang.Long,org.springframework.ui.Model)
+2022-03-11 22:46:11.739  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/tags/{id}],methods=[POST]}" onto public java.lang.String com.falltwo.web.admin.TagController.editPost(com.falltwo.pojo.Tag,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2022-03-11 22:46:11.741  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/{id}/delete],methods=[GET]}" onto public java.lang.String com.falltwo.web.admin.TypeController.delete(java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2022-03-11 22:46:11.741  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types],methods=[GET]}" onto public java.lang.String com.falltwo.web.admin.TypeController.types(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2022-03-11 22:46:11.741  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/input],methods=[GET]}" onto public java.lang.String com.falltwo.web.admin.TypeController.input(org.springframework.ui.Model)
+2022-03-11 22:46:11.741  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types],methods=[POST]}" onto public java.lang.String com.falltwo.web.admin.TypeController.post(com.falltwo.pojo.Type,org.springframework.validation.BindingResult,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2022-03-11 22:46:11.741  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/{id}/input],methods=[GET]}" onto public java.lang.String com.falltwo.web.admin.TypeController.editInput(java.lang.Long,org.springframework.ui.Model)
+2022-03-11 22:46:11.742  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/admin/types/{id}],methods=[POST]}" onto public java.lang.String com.falltwo.web.admin.TypeController.editPost(com.falltwo.pojo.Type,org.springframework.validation.BindingResult,java.lang.Long,org.springframework.web.servlet.mvc.support.RedirectAttributes)
+2022-03-11 22:46:11.742  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/archive],methods=[GET]}" onto public java.lang.String com.falltwo.web.ArchiveShowController.archive(org.springframework.ui.Model)
+2022-03-11 22:46:11.745  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/comments/{blogId}],methods=[GET]}" onto public java.lang.String com.falltwo.web.CommentController.comments(java.lang.Long,org.springframework.ui.Model)
+2022-03-11 22:46:11.746  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/comments],methods=[POST]}" onto public java.lang.String com.falltwo.web.CommentController.post(com.falltwo.pojo.Comment,javax.servlet.http.HttpSession)
+2022-03-11 22:46:11.747  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/],methods=[GET]}" onto public java.lang.String com.falltwo.web.IndexController.index(org.springframework.data.domain.Pageable,org.springframework.ui.Model)
+2022-03-11 22:46:11.748  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/search],methods=[GET]}" onto public java.lang.String com.falltwo.web.IndexController.query(org.springframework.data.domain.Pageable,java.lang.String,org.springframework.ui.Model)
+2022-03-11 22:46:11.748  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/blog/{id}],methods=[GET]}" onto public java.lang.String com.falltwo.web.IndexController.blog(java.lang.Long,org.springframework.ui.Model)
+2022-03-11 22:46:11.748  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/about],methods=[GET]}" onto public java.lang.String com.falltwo.web.IndexController.about(org.springframework.ui.Model)
+2022-03-11 22:46:11.749  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/footer/newblogs],methods=[GET]}" onto public java.lang.String com.falltwo.web.IndexController.newBlogs(org.springframework.ui.Model)
+2022-03-11 22:46:11.749  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tag/{id}],methods=[GET]}" onto public java.lang.String com.falltwo.web.TagShowController.tag(org.springframework.data.domain.Pageable,java.lang.Long,org.springframework.ui.Model)
+2022-03-11 22:46:11.750  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/type/{id}],methods=[GET]}" onto public java.lang.String com.falltwo.web.TypeShowController.type(org.springframework.data.domain.Pageable,java.lang.Long,org.springframework.ui.Model)
+2022-03-11 22:46:11.752  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2022-03-11 22:46:11.752  INFO 8128 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2022-03-11 22:46:11.799  INFO 8128 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2022-03-11 22:46:11.800  INFO 8128 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2022-03-11 22:46:11.820  INFO 8128 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : Detected @ExceptionHandler methods in controllerExceptionHandler
+2022-03-11 22:46:11.861  INFO 8128 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2022-03-11 22:46:12.685  INFO 8128 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2022-03-11 22:46:12.764 ERROR 8128 --- [main] o.a.coyote.http11.Http11NioProtocol      : Failed to start end point associated with ProtocolHandler ["http-nio-8080"]
+
+java.net.BindException: Address already in use: bind
+	at java.base/sun.nio.ch.Net.bind0(Native Method)
+	at java.base/sun.nio.ch.Net.bind(Net.java:469)
+	at java.base/sun.nio.ch.Net.bind(Net.java:458)
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:220)
+	at java.base/sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:88)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:990)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:635)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1022)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:250)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:193)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:297)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:145)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.falltwo.BlogApplication.main(BlogApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:48)
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:87)
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:50)
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:51)
+
+2022-03-11 22:46:12.765 ERROR 8128 --- [main] o.apache.catalina.core.StandardService   : Failed to start connector [Connector[HTTP/1.1-8080]]
+
+org.apache.catalina.LifecycleException: Failed to start component [Connector[HTTP/1.1-8080]]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:167)
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:250)
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:193)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:297)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:145)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.falltwo.BlogApplication.main(BlogApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:48)
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:87)
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:50)
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:51)
+Caused by: org.apache.catalina.LifecycleException: service.getName(): "Tomcat";  Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1029)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	... 21 common frames omitted
+Caused by: java.net.BindException: Address already in use: bind
+	at java.base/sun.nio.ch.Net.bind0(Native Method)
+	at java.base/sun.nio.ch.Net.bind(Net.java:469)
+	at java.base/sun.nio.ch.Net.bind(Net.java:458)
+	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:220)
+	at java.base/sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:88)
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210)
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:990)
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:635)
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1022)
+	... 22 common frames omitted
+
+2022-03-11 22:46:12.779  INFO 8128 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-03-11 22:46:12.865  INFO 8128 --- [main] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2022-03-11 22:46:12.872 ERROR 8128 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8080, or configure this application to listen on another port.
+
+2022-03-11 22:46:12.875  INFO 8128 --- [main] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7f010382: startup date [Fri Mar 11 22:46:00 CST 2022]; root of context hierarchy
+2022-03-11 22:46:12.877  INFO 8128 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2022-03-11 22:46:12.880  INFO 8128 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'

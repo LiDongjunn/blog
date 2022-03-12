@@ -32,7 +32,7 @@ public class TypeShowController {
     BlogService blogService;
 
     @GetMapping("/{id}")
-    public String type(@PageableDefault(size = 4,sort = {"updateTime"},direction = Sort.Direction.DESC)
+    public String type(@PageableDefault(size = 5,sort = {"updateTime"},direction = Sort.Direction.DESC)
                                    Pageable pageable, @PathVariable Long id, Model model){
         List<Type> types = typeService.listTypeTop(1000);
 
