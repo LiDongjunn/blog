@@ -17,32 +17,35 @@
 
 
 <!--导航-->
-<nav th:fragment="menu(n)" class="segment  " style="background-color: inherit; background-image: inherit"  >
-  <div class="ui small segment m-margin-lr-massive "  th:classappend="#{theme.background}">
-    <div class="ui container ">
-      <div class="ui inverted secondary stackable menu">
-        <a href="#" th:href="@{/}"><h2 class="ui header item m-fall" id="theme-toggle" value="1">秋 二 的 B L O G</h2></a>
-        <a href="#" th:href="@{/}" class="m-item item m-mobile-hide " style="color: #0a001f!important;" th:classappend="${n==1} ? 'active m-background-color-wheat'" ><i class="home icon" th:classappend="#{theme.navIcon}"></i><span >首页</span></a>
-        <a href="#" th:href="@{/type/-1}" class="m-item item m-mobile-hide " style="color: #0a001f!important;" th:classappend="${n==2} ? 'active m-background-color-wheat'"><i class="idea icon" th:classappend="#{theme.navIcon}"></i>分类</a>
-        <a href="#" th:href="@{/tag/-1}" class="m-item item m-mobile-hide" style="color: #0a001f!important;" th:classappend="${n==3} ? 'active m-background-color-wheat'"><i class="tags icon" th:classappend="#{theme.navIcon}"></i>标签</a>
-        <a href="#" th:href="@{/archive}" class="m-item item m-mobile-hide" style="color: #0a001f!important;" th:classappend="${n==4} ? 'active m-background-color-wheat'"><i class="clone icon" th:classappend="#{theme.navIcon}"></i>归档</a>
-        <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide" style="color: #0a001f!important;" th:classappend="${n==5} ? 'active m-background-color-wheat'"><i class="info icon" th:classappend="#{theme.navIcon}"></i>关于我</a>
-        <div class="right item m-mobile-hide">
-          <form name="search" action="#" th:action="@{/search}" method="get" target="_blank" >
-            <div class="ui small icon input m-margin-tb-mini"  >
-              <input type="text" name="query" th:classappend="#{theme.articleTerminal}"  placeholder="Search...." value="" th:value="${query}">
-              <i onclick="document.forms['search'].submit()" class="search link icon"></i>
-            </div>
-          </form>
+<nav th:fragment="menu(n)" class="" style="background-color: inherit; background-image: inherit"  >
+  <div class="ui container">
+    <div class="ui small segment m-mobile-nav"  th:classappend="#{theme.background}">
+      <div class="ui container ">
+        <div class="ui inverted secondary stackable menu ">
+          <a href="#" th:href="@{/}"><h2 class="ui header item m-fall" id="theme-toggle" style="justify-content: space-between" value="1">秋二的BLOG</h2></a>
+          <a href="#" th:href="@{/}" class="m-item item m-mobile-hide " style="color: #0a001f!important;" th:classappend="${n==1} ? 'active m-background-color-wheat'" ><i class="home icon" th:classappend="#{theme.navIcon}"></i><span >首页</span></a>
+          <a href="#" th:href="@{/type/-1}" class="m-item item m-mobile-hide " style="color: #0a001f!important;" th:classappend="${n==2} ? 'active m-background-color-wheat'"><i class="idea icon" th:classappend="#{theme.navIcon}"></i>分类</a>
+          <a href="#" th:href="@{/tag/-1}" class="m-item item m-mobile-hide" style="color: #0a001f!important;" th:classappend="${n==3} ? 'active m-background-color-wheat'"><i class="tags icon" th:classappend="#{theme.navIcon}"></i>标签</a>
+          <a href="#" th:href="@{/archive}" class="m-item item m-mobile-hide" style="color: #0a001f!important;" th:classappend="${n==4} ? 'active m-background-color-wheat'"><i class="clone icon" th:classappend="#{theme.navIcon}"></i>归档</a>
+          <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide" style="color: #0a001f!important;" th:classappend="${n==5} ? 'active m-background-color-wheat'"><i class="info icon" th:classappend="#{theme.navIcon}"></i>关于我</a>
+          <div class="right item m-mobile-hide">
+            <form name="search" action="#" th:action="@{/search}" method="get" target="_blank" >
+              <div class="ui small icon input m-margin-tb-mini"  >
+                <input type="text" name="query" th:classappend="#{theme.articleTerminal}"  placeholder="Search...." value="" th:value="${query}">
+                <i onclick="document.forms['search'].submit()" class="search link icon"></i>
+              </div>
+            </form>
 
 
+          </div>
         </div>
       </div>
+      <a href="#" class="ui menu toggle icon button m-right-top m-mobile-show" th:classappend="#{theme.background}">
+        <i class="sidebar icon"></i>
+      </a>
     </div>
-    <a href="#" class="ui menu toggle icon button m-right-top m-mobile-show" th:classappend="#{theme.background}">
-      <i class="sidebar icon"></i>
-    </a>
   </div>
+
 
 </nav>
 
