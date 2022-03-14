@@ -3,7 +3,7 @@
 <head th:replace="admin/_fragments :: head(~{::title})" >
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width， initial-scale=1.0">
-    <title>分类新增</title>
+    <title>标签新增</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
     <link rel="stylesheet" href="../../static/css/me.css">
     <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.min.css">
@@ -12,7 +12,7 @@
 </head>
 <body>
 
-    <nav th:replace="admin/_fragments :: menu(2)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small " >
+    <nav th:replace="admin/_fragments :: menu(3)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small " >
         <div class="ui container">
 
 <!--           secondary 次要的，将首页,分类之间的间隔变大-->
@@ -58,8 +58,8 @@
 
                 <div class="field">
                     <div class="ui left labeled input">
-                        <label class="ui teal basic label">分类</label>
-                        <input tag="text" name="name" placeholder="分类名称" th:value="*{name}">
+                        <label class="ui teal basic label">标签</label>
+                        <input tag="text" name="name" placeholder="标签名称" th:value="*{name}">
                     </div>
                 </div>
 

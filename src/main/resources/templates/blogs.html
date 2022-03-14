@@ -56,7 +56,7 @@
                 <div class="ui center aligned container">
                     <div class="ui horizontal link list m-padded">
                         <div class="item">
-                            <i class="calendar icon" style="padding-bottom: 20px !important"></i><span th:text="*{#dates.format(updateTime,'yyyy-MM-dd')}">2017-01-05</span>
+                            <i class="calendar icon" style="padding-bottom: 20px !important"></i><span th:text="*{#dates.format(createTime,'yyyy-MM-dd')}">2017-01-05</span>
                         </div>
                         <div class="item">
                             <i class="eye icon" style="padding-bottom: 20px !important"></i><spqn th:text="*{views}">300</spqn>
@@ -451,7 +451,7 @@ margin:1em 0 0.6em;
                     <div class="thirteen wide column">
                         <ui>
                             <li>作者: <span th:text=" *{user.nickname}">秋二</span> <a href="#" th:href="@{/about}" target="_blank">(联系作者)</a> </li>
-                            <li>发表时间: <span th:text=" *{#dates.format(updateTime)}">2017-10-02 09:08</span> </li>
+                            <li>发表时间: <span th:text=" *{#dates.format(createTime)}">2017-10-02 09:08</span> </li>
                             <li>版权声明: 自由转载-非商用-非衍生-保持署名（创意共享3.0许可证)</li>
                             <li>公众号转载: 请在文未添加作者公众号二维码</li>
 

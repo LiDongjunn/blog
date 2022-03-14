@@ -22,7 +22,7 @@ public class About {
     private Long id;
     @Lob
     private String content;
-
+    @Lob
     private String introduce;
 
 }
