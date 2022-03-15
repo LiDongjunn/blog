@@ -236,6 +236,9 @@ line-height: 1.8;
 .m-mobile-show{
   display: none !important;
 }
+.m-mobile-nav{
+  width: max-content !important;
+}
 @media screen and (max-width: 1000px) {
   .m-mobile-hide{
     display: none !important;
@@ -259,7 +262,9 @@ line-height: 1.8;
   .m-mobile-wide{
     width: 100% !important;
   }
-
+  .m-mobile-nav{
+    width: 100% !important;
+  }
 
 }
 

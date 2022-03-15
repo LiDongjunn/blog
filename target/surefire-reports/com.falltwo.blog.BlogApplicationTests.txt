@@ -2,7 +2,7 @@
 Test set: com.falltwo.blog.BlogApplicationTests
 -------------------------------------------------------------------------------
 Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0.003 sec <<< FAILURE! - in com.falltwo.blog.BlogApplicationTests
-initializationError(com.falltwo.blog.BlogApplicationTests)  Time elapsed: 0.002 sec  <<< ERROR!
+initializationError(com.falltwo.blog.BlogApplicationTests)  Time elapsed: 0.001 sec  <<< ERROR!
 java.lang.Exception: The class com.falltwo.blog.BlogApplicationTests is not public.
 	at org.junit.validator.PublicClassValidator.validateTestClass(PublicClassValidator.java:29)
 	at org.junit.runners.ParentRunner.applyValidators(ParentRunner.java:134)
