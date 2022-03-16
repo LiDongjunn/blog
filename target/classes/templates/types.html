@@ -156,13 +156,13 @@
                 </div>
                 <!--*/-->
             </main>
-            <footer class="ui bottom attached segment two column grid" th:if="${page.totalPages} > 1">
+            <footer class="ui bottom attached segment two column grid" th:classappend="#{theme.articleTerminal}" th:if="${page.totalPages} > 1">
                 <div class="column">
                     <!--                            basic 只给字体和边框加颜色-->
-                    <a href="#" class="ui teal basic mini button" th:href="@{/type/{id}/(id=${activeTypeId},page=${page.number}-1)}" th:unless="${page.first}">上一页</a>
+                    <a href="#" class="ui basic mini button" th:classappend="#{theme.semantic}" th:href="@{/type/{id}/(id=${activeTypeId},page=${page.number}-1)}" th:unless="${page.first}">上一页</a>
                 </div>
                 <div class="right aligned column">
-                    <a href="#" class="ui teal basic mini button" th:href="@{/type/{id}/(id=${activeTypeId},page=${page.number}+1)}" th:unless="${page.last}">下一页</a>
+                    <a href="#" class="ui basic mini button" th:classappend="#{theme.semantic}" th:href="@{/type/{id}/(id=${activeTypeId},page=${page.number}+1)}" th:unless="${page.last}">下一页</a>
                 </div>
             </footer >
         </div>

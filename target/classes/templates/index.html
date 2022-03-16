@@ -83,8 +83,8 @@
 
                     </main>
 
-                    <footer class="ui bottom attached segment two column grid " th:classappend=" #{theme.articleTerminal}" th:if="${page.totalPages} > 1">
-                        <div class="column">
+                    <footer class="ui bottom attached segment two column grid " th:classappend="#{theme.articleTerminal}" th:if="${page.totalPages} > 1">
+                        <div class="column" th:classappend="#{theme.articleTerminal}">
 <!--                            basic 只给字体和边框加颜色-->
                             <a href="#" class="ui " th:classappend="#{theme.semantic} + ' basic mini button'" th:href="@{/(page=${page.number}-1)}" th:unless="${page.first}">上一页</a>
                         </div>
